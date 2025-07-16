@@ -54,6 +54,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.dashboard-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 5px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .dashboard-main {

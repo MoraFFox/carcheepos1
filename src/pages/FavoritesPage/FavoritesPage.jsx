@@ -12,7 +12,7 @@ import {
   FiBell,
   FiFolder,
 } from "react-icons/fi";
-import FavoriteCard from "../../components/FavoriteCard/FavoriteCard";  
+import FavoriteCard from "../../components/FavoriteCard/FavoriteCard";
 import CompareModal from "../../components/CompareModal/CompareModal";
 import FiltersSidebar from "../../components/FiltersSidebar/FiltersSidebar";
 import { useFavorites } from "../../context/FavoritesContext/FavoritesContext";
@@ -31,7 +31,7 @@ const categories = [
 
 const FavoritesPage = () => {
   const { favorites } = useFavorites();
-  const { compareList , compareVehicle } = useCompare();
+  const { compareList, compareVehicle } = useCompare();
   const [viewMode, setViewMode] = useState("grid");
   const [compareMode, setCompareMode] = useState(false);
   const [selectedVehicles, setSelectedVehicles] = useState([]);
@@ -41,7 +41,7 @@ const FavoritesPage = () => {
   const [sortOrder, setSortOrder] = useState("desc");
   const [selectedTags, setSelectedTags] = useState([]);
   const [filteredFavorites, setFilteredFavorites] = useState([]);
-  
+
   const [filters, setFilters] = useState({
     priceRange: { min: "", max: "" },
     model: { min: "", max: "" },
@@ -49,15 +49,14 @@ const FavoritesPage = () => {
     manifacture: [],
     type: [],
     transmission: [],
-    engine: { fuelType: [], },
+    engine: { fuelType: [] },
     features: [],
   });
- 
 
   // Apply filters and sorting to favorites
   useEffect(() => {
     let filtered = [...favorites];
- console.log(filtered);
+    console.log(filtered);
     // Filter by tags if any are selected
     if (selectedTags.length > 0) {
       filtered = filtered.filter((car) => {
@@ -374,9 +373,7 @@ const FavoritesPage = () => {
       );
     }
     if (filters.type.length > 0) {
-      filtered = filtered.filter((car) =>
-        filters.type.includes(car.type)
-      );
+      filtered = filtered.filter((car) => filters.type.includes(car.type));
     }
     if (filters.transmission.length > 0) {
       filtered = filtered.filter((car) =>
@@ -430,12 +427,12 @@ const FavoritesPage = () => {
   };
   const classToggle = `filters-sidebar ` + (FilterOpen ? "close" : "open");
   return (
-    <div className='favorites-page'>
-      <BackDrop backDrop={FilterOpen} setBackDrop={setFilterOpen}/>
-      <div className='favorites-content'>
-        <div className='favorites-header'>
+    <div className="favorites-page">
+      <BackDrop backDrop={FilterOpen} setBackDrop={setFilterOpen} />
+      <div className="favorites-content">
+        <div className="favorites-header">
           <h1>Favorites</h1>
-          <div className='view-options'>
+          <div className="view-options">
             <button
               className={`view-btn ${viewMode === "grid" ? "active" : ""}`}
               onClick={() => setViewMode("grid")}
@@ -463,106 +460,109 @@ const FavoritesPage = () => {
         </div>
         {compareMode ? (
           <CompareModal
-          isOpen={showCompareModal}
-          onClose={() => {
-            setShowCompareModal(false);
-            if (compareMode) {
-              setSelectedVehicles([]);
-              console.log(selectedVehicles);
-              setCompareMode(false);
-            }
-          }}
-         
-          vehicles={compareVehicle}
-          
-          onRemoveVehicle={(id) => {
-            setSelectedVehicles((prev) =>
-              prev.filter((itemId) => itemId !== id)
-            );
-            if (selectedVehicles.length <= 1) {
-              console.log(selectedVehicles);
+            isOpen={showCompareModal}
+            onClose={() => {
               setShowCompareModal(false);
-              setCompareMode(false);
-            }
-          }}
-        />
-            
-          ):(<div className='favorites-main'>
-          <aside className='favorites-sidebar'>
-            <nav className='category-nav'>
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  className={`category-btn ${
-                    activeCategory === category.id ? "active" : ""
-                  }`}
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  <category.icon />
-                  <span>{category.label}</span>
-                </button>
-              ))}
-            </nav>
-            <button className='apply-filters' onClick={handleApplyFilters}>
-              {FilterOpen ? <MdOutlineFilterAlt /> : <MdOutlineFilterAltOff />}
-            </button>
+              if (compareMode) {
+                setSelectedVehicles([]);
+                console.log(selectedVehicles);
+                setCompareMode(false);
+              }
+            }}
+            vehicles={compareVehicle}
+            onRemoveVehicle={(id) => {
+              setSelectedVehicles((prev) =>
+                prev.filter((itemId) => itemId !== id)
+              );
+              if (selectedVehicles.length <= 1) {
+                console.log(selectedVehicles);
+                setShowCompareModal(false);
+                setCompareMode(false);
+              }
+            }}
+          />
+        ) : (
+          <div className="favorites-main">
+            <aside className="favorites-sidebar">
+              <nav className="category-nav">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    className={`category-btn ${
+                      activeCategory === category.id ? "active" : ""
+                    }`}
+                    onClick={() => setActiveCategory(category.id)}
+                  >
+                    <category.icon />
+                    <span>{category.label}</span>
+                  </button>
+                ))}
+              </nav>
+              <button className="apply-filters" onClick={handleApplyFilters}>
+                {FilterOpen ? (
+                  <MdOutlineFilterAlt />
+                ) : (
+                  <MdOutlineFilterAltOff />
+                )}
+              </button>
 
-            <FiltersSidebar
-              classControlFilterSidebar={classToggle}
-              favorites={favorites}
-              filters={filters}
-              setFilters={setFilters}
-              sortBy={sortBy}
-              setSortBy={setSortBy}
-              sortOrder={sortOrder}
-              setSortOrder={setSortOrder}
-              selectedTags={selectedTags}
-              setSelectedTags={setSelectedTags}
-            />
-          </aside>
-            <main className={`favorites-grid ${viewMode}`}>
-            
-            {filteredFavorites.map((item) => 
-           (
-
-              <FavoriteCard
-                key={item.id ?? item._id ?? item.vehicleId ?? `${item.manifacture}-${item.model}` }
-                item={item}
-                viewMode={viewMode}
-                compareMode={compareMode}
-                selectedVehicles={selectedVehicles}
-                setSelectedVehicles={setSelectedVehicles}
-                setShowCompareModal={setShowCompareModal}
+              <FiltersSidebar
+                classControlFilterSidebar={classToggle}
+                favorites={favorites}
+                filters={filters}
+                setFilters={setFilters}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                sortOrder={sortOrder}
+                setSortOrder={setSortOrder}
+                selectedTags={selectedTags}
+                setSelectedTags={setSelectedTags}
               />
-            ))}
-            {compareList.length >= 2 && (
-              <div style={{ width: '100%', margin: '2rem 0' }}>
-                <h2>Comparison Table</h2>
-                <CompareTable cars={compareList} />
-              </div>
-            )}
-            {compareMode && selectedVehicles.length > 0 && (
-              <div className='compare-footer'>
-                <span>{selectedVehicles.length} vehicles selected</span>
-                <button
-                  className='compare-button'
-                  onClick={() => {
-                    if (selectedVehicles.length >= 2) {
-                      setShowCompareModal(true);
-                    } else {
-                      alert("Please select at least 2 vehicles to compare");
-                    }
-                  }}
-                >
-                  Compare Selected ({selectedVehicles.length})
-                </button>
-              </div>
-            )}
-          </main>
-          
-        </div>)}
+            </aside>
+            <main className={`favorites-grid ${viewMode}`}>
+              {filteredFavorites.map((item) => (
+                <FavoriteCard
+                  key={
+                    item.id ??
+                    item._id ??
+                    item.vehicleId ??
+                    `${item.manifacture}-${item.model}`
+                  }
+                  item={item}
+                  viewMode={viewMode}
+                  compareMode={compareMode}
+                  selectedVehicles={selectedVehicles}
+                  setSelectedVehicles={setSelectedVehicles}
+                  setShowCompareModal={setShowCompareModal}
+                />
+              ))}
+              {/* {compareList.length >= 2 && (
+                <div style={{ width: "100%", margin: "2rem 0" }}>
+                  <h2>Comparison Table</h2>
+                  <CompareTable cars={compareList} />
+                </div>
+              )} */}
+              {compareMode && selectedVehicles.length > 0 && (
+                <div className="compare-footer">
+                  <span>{selectedVehicles.length} vehicles selected</span>
+                  <button
+                    className="compare-button"
+                    onClick={() => {
+                      if (selectedVehicles.length >= 2) {
+                        setShowCompareModal(true);
+                      } else {
+                        alert("Please select at least 2 vehicles to compare");
+                      }
+                    }}
+                  >
+                    Compare Selected ({selectedVehicles.length})
+                  </button>
+                </div>
+              )}
+            </main>
+          </div>
+        )}
       </div>
-
     </div>
   );
 };

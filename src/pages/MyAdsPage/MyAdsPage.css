@@ -27,7 +27,7 @@
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 15px;
-  color: #444;
+  color: var(--text);
 }
 
 .overview-seller-section h2 {
@@ -39,7 +39,7 @@
 .overview-seller-section h4 {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #555;
+  color: var(--text);
   margin-top: 20px; /* Add space above sub-section titles */
 }
 
@@ -47,8 +47,8 @@
 .seller-section-area {
   margin-top: 15px;
   padding: 15px;
-  background-color: #fdfdfd;
-  border: 1px solid #f0f0f0;
+  background-color: var(--altBackground);
+  border: 1px solid var(--sb1);
   border-radius: 6px;
 }
 
@@ -82,11 +82,11 @@
 
 /* Slider Area Placeholder */
 .seller-slider-area p {
-  color: #888;
+  color: var(--text);
   font-style: italic;
   text-align: center;
   padding: 30px;
-  border: 1px dashed #ccc;
+  border: 1px dashed var(--sb1);
   border-radius: 4px;
 }
 

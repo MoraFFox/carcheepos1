@@ -1,5 +1,5 @@
 .races-chart-card {
-  background-color: #ffffff;
+  background-color: var(--altBackground);
   border-radius: 12px;
   padding: 20px;
   padding-bottom: 0;
@@ -15,7 +15,7 @@
   font-size: 1.1rem;
   /* Increased font size */
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text);
   /* Darker gray-800 for better contrast */
 }
 
@@ -28,7 +28,7 @@
   font-size: 2.25rem;
   /* 36px */
   font-weight: 700;
-  color: #111827;
+  color: var(--text);
   /* gray-900 */
   line-height: 1.2;
 }
@@ -56,7 +56,7 @@
 
 /* Recharts specific overrides */
 .recharts-cartesian-axis-tick-value {
-  fill: #4b5563;
+  fill: var(--text);
   /* Darker gray-600 for better contrast */
   font-size: 0.8rem;
   /* Slightly larger tick labels */
@@ -69,14 +69,14 @@
 .recharts-default-tooltip {
   border-radius: 6px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid #e5e7eb !important;
+  border: 1px solid var(--sb1) !important;
   /* gray-200 */
-  background-color: #ffffff !important;
+  background-color: var(--altBackground) !important;
 }
 
 .recharts-tooltip-label {
   font-weight: 600;
-  color: #374151;
+  color: var(--text);
   /* gray-700 */
 }
 

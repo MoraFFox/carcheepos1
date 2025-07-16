@@ -1,6 +1,5 @@
 /* CarCard.css - Styles for individual car cards */
 
-/* Base Block: .car-card */
 .car-card {
   flex-grow: 1;
   flex-shrink: 1;
@@ -12,10 +11,10 @@
   border-radius: 12px;
   padding: 0;
   margin: 0px;
+  min-height: 445px;
   max-width: 100%;
   box-shadow: var(--background) 0px 4px 8px 0px, var(--background) 0px 8px 24px 8px;
   max-height: 445px;
-  min-height: fit-content;
   overflow: hidden;
   color: var(--text);
   
@@ -79,6 +78,7 @@
 .car-card__image-section {
   position: relative;
   width: 100%;
+  flex-grow: 1;
   height: 180px;
   background: var(--altBackground);
   border-bottom: 2px solid var(--accent);
@@ -141,10 +141,14 @@
 .car-card__like-btn:hover {
   transform: scale(1.1);
 }
+.car-card--liked .car-card__footer{
+  border-top: 2px solid #707070 !important;
+}
 
 /* Car Details */
 .car-card__details {
-  flex-grow: 1;
+  flex-grow: 0;
+  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   background-color: var(--background);
@@ -203,9 +207,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  padding-top: 5px;
   background: var(--background);
-  border-top: 3px solid var(--bg);
+  border-top: 2px solid var(--text);
   margin-top: 1rem;
 }
 
@@ -352,7 +355,6 @@
 .car-card {
   break-inside: avoid;
   margin-bottom: 20px;
-  grid-row: span 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
