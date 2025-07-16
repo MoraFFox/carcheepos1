@@ -1,0 +1,123 @@
+.notifications-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.notifications-list {
+  list-style: none;
+  padding: 0;
+}
+
+.notification-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.notification-item.unread {
+  background-color: var(--lightPrimary);
+}
+
+.notification-item + .notification-item {
+  margin-top: 12px;
+}
+
+.notification-item:hover {
+  background-color: var(--bg);
+}
+
+.notification-content p {
+  margin: 0 0 5px 0;
+}
+
+.notification-content small {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Header with action */
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.mark-all-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mark-all-btn:hover {
+  background: var(--primary-dark, #0b7b55);
+}
+
+.notifications-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.filter-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: var(--background);
+  color: var(--primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-pill.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.notification-section {
+  background: var(--background);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.notification-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.notification-count {
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+.notification-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.notification-type-icon {
+  min-width: 24px;
+  min-height: 24px;
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .notifications-container {
+    padding: 12px;
+  }
+}

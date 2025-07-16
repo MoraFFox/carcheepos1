@@ -1,0 +1,801 @@
+/** @format */
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+.filters-panel {
+  position: fixed;
+  background: rgb(235, 235, 235);
+  /* Dark background for the panel */
+  border-radius: 24px 24px 0 0;
+  /* Slightly larger radius */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  /* Transition height and transform for smoother open/close */
+  z-index: 1000;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.3);
+  /* Softer shadow */
+  overflow: hidden;
+  /* Crucial to hide content when collapsed */
+
+  /* Default height for collapsed state */
+  transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================================================
+   Mobile-First FiltersPanel - Clean Start
+   ============================================================================= */
+
+/* Base Panel - Mobile Bottom Sheet */
+@media (max-width: 768px) {
+  .filters-panel {
+    left: 0;
+    width: 100%;
+    height: 93vh;
+    bottom: -1px;
+  }
+
+  .filters-panel.panel-collapsed {
+    height: 0;
+  }
+}
+
+
+/* Toggle Area */
+.panel-toggle-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Space out title and icon */
+  padding: 0 24px;
+  /* Adjusted padding */
+  cursor: pointer;
+  height: 70px;
+  /* Fixed height */
+  flex-shrink: 0;
+  /* Prevent shrinking */
+  border-bottom: 1px solid var(--background);
+  /* Softer border */
+  position: relative;
+  background-color: var(--primary);
+  /* Ensure it has background if panel bg changes */
+}
+
+
+/* Visual grabber/handle at the top of the toggle area */
+
+
+.panel-toggle-title {
+  font-size: 1.05rem;
+  /* Slightly larger title */
+  font-weight: 600;
+  color: #e0e0e0;
+  /* Lighter text color for better contrast */
+  margin-left: 8px;
+  /* Space from potential icon on left */
+}
+
+/* Style for the toggle icons (up/down arrows) */
+.panel-toggle-area svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e0e0e0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 8px;
+  /* transform: rotate(-90deg); */
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .panel-toggle-area svg {
+    transform: rotate(-90deg);
+  }
+}
+
+
+/* New wrapper for all filter content, allows header to be sticky within this */
+.filters-content-wrapper {
+  flex: 1;
+  /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Important for nested scrolling */
+  padding: 0 20px;
+  /* Add horizontal padding here */
+}
+
+/* Wrapper for the sticky header */
+.filters-header-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  background: #1e1e2e;
+  /* Match panel background */
+  z-index: 10;
+  /* Ensure it's above scrollable content */
+  padding-top: 20px;
+  /* Space above the header */
+  padding-bottom: 12px;
+  /* Space below the header before content */
+}
+
+/* Submit and Toggle Button Section */
+.filter-submit-section {
+  display: flex;
+  justify-content: space-around;
+  /* Or space-between, or use gap */
+  align-items: center;
+  /* Vertically align items if they have different heights */
+  padding-top: 16px;
+  /* Add some space above the buttons */
+  padding: 16px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  /* Add some space below the buttons */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+
+}
+
+/* Actual scrollable area for filter groups */
+.actual-filters-scrollable-area {
+  flex: 1;
+  /* Allow this area to grow and scroll */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  /* Space at the very bottom of scroll */
+}
+
+/* Header */
+.filters-header {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom is removed, spacing handled by wrapper */
+  /* padding-bottom is removed, spacing handled by wrapper */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+  /* Keep padding for the border line */
+}
+
+
+.filters-header h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.reset-all-button {
+  /* width: 50%; */
+  background: #e74c3c;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-all-button:active {
+  transform: scale(0.95);
+}
+
+/* Filter Groups */
+.filter-group {
+  background-color: var(--background);
+  opacity: 1;
+  border-radius: 8px;
+  padding: 16px;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* When panel is expanded, animate filter groups in */
+.filters-panel.panel-expanded .filter-group {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation for filter groups - adjust count as needed */
+.filters-panel.panel-expanded .filter-group:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(4) {
+  transition-delay: 0.25s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(7) {
+  transition-delay: 0.4s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(8) {
+  transition-delay: 0.45s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(9) {
+  transition-delay: 0.5s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(10) {
+  transition-delay: 0.55s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(11) {
+  transition-delay: 0.6s;
+}
+
+.filters-panel.panel-expanded .filter-group:nth-child(12) {
+  transition-delay: 0.65s;
+}
+
+/* Added one more just in case */
+
+.filter-group label {
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 8px;
+  padding:6px;
+  font-weight: 600;
+  color: var(--text);
+  background-color: var(--bg);
+  font-size: 1rem;
+  height: 15px;
+  border-radius: 12px;
+}
+
+.filter-group label:hover {
+  color: white;
+  background: var(--primary);
+}
+
+/* Inputs */
+.filter-group select,
+.filter-group input[type="text"] {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid rgba(110, 110, 110, 0.2);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  min-height: 50px;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: all 0.2s ease;
+}
+.filter-group select::picker-icon {
+  color: var(--text);
+  transition: 0.4s rotate;
+}
+
+
+
+.filter-group select:focus,
+.filter-group input:focus {
+  border: var(--text) 1px solid;
+  outline: none;
+  background: var(--bg);
+}
+
+
+  
+
+
+/* Slider */
+.filter-group-slider {
+  margin-bottom: 28px;
+  padding: 0 16px;
+}
+
+.rc-slider {
+  margin: 16px 0;
+}
+
+.rc-slider-rail {
+  background: rgba(110, 110, 110, 0.2);
+  height: 4px;
+}
+
+.rc-slider-track {
+  background: var(--primary);
+  height: 4px;
+}
+
+.rc-slider-handle {
+  background: rgba(255, 255, 255, 0.726);
+  border: 2px solid var(--primary);
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  opacity: 1;
+}
+
+.slider-values {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0px;
+  padding-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Color Options */
+.filter-group-color .color-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.color-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  min-height: 36px;
+  justify-content: center;
+}
+
+.color-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.color-dot {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgb(170, 170, 170);
+}
+
+.color-dot.any {
+  background: conic-gradient(from 0deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+}
+
+
+
+
+
+
+
+
+
+/* Transmission Options */
+.filter-group-transmission .transmission-options {
+  display: grid;
+  justify-content: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.transmission-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  min-height: 80px;
+  justify-content: center;
+}
+
+.transmission-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.transmission-icon {
+  display: flex;
+  position: relative;
+  bottom: -10%;
+  align-items: start;
+  justify-content: center;
+  font-size: 24px;
+  width: 28px;
+  height: 28px;
+  filter: brightness(0.8);
+}
+
+.transmission-icon-placeholder {
+  display: flex;
+  position: relative;
+  bottom: -10%;
+  align-items: end;
+  justify-content: center;
+  font-size: 24px;
+  height: 28px;
+  color: rgba(121, 121, 121, 0.6);
+}
+
+
+.transmission-option:has(input[type="radio"]:checked) {
+  background: var(--bg);
+  border-color: var(--secondary);
+  color: var(--text);
+}
+
+
+
+/* Car Type Options */
+.filter-group-car-type .car-type-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.car-type-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  min-height: 80px;
+  justify-content: center;
+}
+
+.car-type-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.car-type-icon {
+  font-size: 28px;
+  height: 32px;
+}
+
+
+
+
+
+/* Submit Section */
+
+
+.apply-filters-button {
+  width: 50%;
+  background: #3498db;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 50px;
+}
+
+.apply-filters-button:active {
+  transform: scale(0.98);
+  background: #2980b9;
+}
+
+/* Toggle Buttons */
+.toggle-filters-button-close {
+  display: none;
+}
+
+.toggle-filters-button-close:active {
+  transform: scale(0.9);
+}
+
+.toggle-filters-button-open {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: #3498db;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.4);
+  color: #ffffff;
+  animation: beat 4s ease infinite;
+}
+
+.toggle-filters-button-open:hover {
+  transform: scale(0.98);
+  background: #2980b9;
+}
+
+
+
+
+
+/* Desktop Styles - Enhanced for larger screens */
+@media (min-width: 769px) {
+  .filters-panel {
+    position: fixed;
+    left: 61%;
+    bottom: -1px;
+    width: 40%;
+    height: 93vh;
+    border-radius: 24px 0px 0px 24px;
+    overflow: visible;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .filters-panel.panel-expanded {
+    transform: translateY(0);
+  }
+
+  .filters-panel.panel-collapsed {
+    transform: translateX(95%);
+  }
+
+
+  .filters-header {
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .filters-header h4 {
+    font-size: 1.5rem;
+  }
+
+
+  .panel-toggle-area {
+    background-color: var(--primary);
+    display: flex;
+    position: relative;
+    border-radius: 24px 0px 0px 24px;
+    height: 50px;
+    padding: 0 32px;
+  }
+
+  .panel-toggle-area::before {
+    width: 60px;
+  }
+
+
+  .toggle-filters-button-open {
+    display: flex;
+    left: -3rem;
+    transform: none;
+    border-radius: 8px 0px 0px 8px;
+    width: 48px;
+    height: 60px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    animation: none;
+  }
+
+  .toggle-filters-button-open:hover {
+    background: #2980b9;
+  }
+
+  .toggle-filters-button-open .filter-icon {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+    rotate: 180deg;
+  }
+
+  .toggle-filters-button-open .filter-text {
+    display: none;
+  }
+
+
+  .filters-content-wrapper {
+    padding: 0 20px;
+    padding-right: 5px;
+  }
+
+  .actual-filters-scrollable-area {
+    padding-right: 20px;
+    padding-bottom: 0px;
+  }
+
+
+  .actual-filters-scrollable-area::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .actual-filters-scrollable-area::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .actual-filters-scrollable-area::-webkit-scrollbar-thumb {
+    background: rgba(52, 152, 219, 0.5);
+    border-radius: 4px;
+  }
+
+  .actual-filters-scrollable-area::-webkit-scrollbar-thumb:hover {
+    background: rgba(52, 152, 219, 0.7);
+  }
+
+
+  .filter-group {
+    margin-bottom: 32px;
+  }
+
+  .filter-group label {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    height: auto;
+    color: var(--text);
+  }
+
+
+  .filter-group select,
+  .filter-group input[type="text"] {
+    flex-basis: 80%;
+    padding: 14px 18px;
+    margin: 0;
+    min-height: 54px;
+    font-size: 1.05rem;
+    transition: all 0.2s ease;
+  }
+
+  .filter-group select:hover,
+  .filter-group input[type="text"]:hover {
+    border-color: var(--primary);
+    background: var(--bg);
+  }
+
+
+  .color-option:hover,
+  .transmission-option:hover,
+  .car-type-option:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .filter-group-color .color-options {
+    grid-template-columns: repeat(auto-fill, 1fr);
+    gap: 12px;
+  }
+
+  .filter-group-transmission .transmission-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .filter-group-car-type .car-type-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+
+  .apply-filters-button,
+  .reset-all-button {
+    min-height: 54px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .apply-filters-button:hover,
+  .reset-all-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .rc-slider-handle {
+    width: 22px;
+    height: 22px;
+    margin-top: -9px;
+  }
+
+  .rc-slider-handle:hover {
+    border-color: #217dbb;
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2);
+  }
+
+
+  .filter-submit-section {
+    padding: 20px;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .filters-panel {
+    left: 70.5%;
+    bottom: -1px;
+    width: 30%;
+    height: 93vh;
+    border-radius: 24px 0px 0px 24px;
+    overflow: visible;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (min-width: 1920px) {
+  .filters-panel {
+    left: 75%;
+    bottom: -1px;
+    width: 25%;
+    height: 93vh;
+    border-radius: 24px 0px 0px 24px;
+    overflow: visible;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+.filter-group-label{
+  font-size: 1rem !important;
+  
+}
+.filter-group-label:hover{
+  color: var(--text)!important;
+  background-color: transparent!important;
+}
+
+  

@@ -1,0 +1,249 @@
+/* Base Card Styles */
+.booking-card {
+  position: relative;
+  background: var(--background);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  outline: none;
+  max-width: 732px;
+  min-width: 300px;
+  text-wrap: nowrap;
+  flex: 1 1 auto;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Status Badge */
+.booking-card__status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  z-index: 1;
+}
+
+/* Content Layout */
+.booking-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Section */
+.booking-card__image-section {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+}
+
+.booking-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Details Section */
+.booking-card__details {
+  padding: 1rem;
+  color: var(--background);
+  background-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .booking-card__details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.booking-card__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* Info Grid */
+.booking-card__info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.booking-card__info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.booking-card__info-item svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+/* Contact Section */
+.booking-card__contact {
+  background: var(--secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .booking-card__contact {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}
+
+.booking-card__contact h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.booking-card__contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.booking-card__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.booking-card__contact-item svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+}
+
+/* Footer Section */
+.booking-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 3px solid rgba(255, 255, 255, 0.384);
+}
+
+.booking-card__price {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-card__price-label {
+  font-size: 0.9rem;
+}
+
+.booking-card__price-amount {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.booking-card__view-details {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+}
+
+.booking-card__view-details span {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s ease;
+}
+
+.booking-card:hover .booking-card__view-details span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.booking-card:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+  .booking-card__content {
+    flex-direction: row;
+  }
+
+  .booking-card__image-section {
+    width: 280px;
+    height: auto;
+  }
+
+  .booking-card__details {
+    flex: 1;
+    padding: 1.5rem;
+  }
+
+  .booking-card__info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-card__contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-card__footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .booking-card__actions {
+    justify-content: flex-end;
+  }
+
+  .booking-card__btn {
+    flex: 0 1 auto;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .booking-card__image-section {
+    width: 320px;
+  }
+
+  .booking-card__details {
+    padding: 2rem;
+  }
+
+  .booking-card__info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .booking-card__contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .booking-card__btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}

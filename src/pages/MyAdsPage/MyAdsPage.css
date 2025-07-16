@@ -1,0 +1,122 @@
+/* Styles for MyAdsPage.jsx */
+
+.my-ads-page {
+  padding: 20px;
+}
+
+.my-ads-page h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Styles moved from DashboardOverview.css */
+
+/* General Section Styling for Seller Area */
+.overview-seller-section {
+  /* Keep or rename this class */
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.overview-seller-section h2,
+.overview-seller-section h3,
+.overview-seller-section h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.overview-seller-section h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.overview-seller-section h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+  margin-top: 20px; /* Add space above sub-section titles */
+}
+
+/* Seller Section Specific Areas */
+.seller-section-area {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #fdfdfd;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+}
+
+/* Charts Area - Flexbox for side-by-side */
+.seller-charts-area {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px; /* Space between charts */
+  background-color: transparent; /* Remove background if charts have their own */
+  border: none;
+  padding: 0;
+}
+
+/* Ensure chart components take up appropriate space */
+.seller-charts-area > div {
+  /* Target direct children (chart components) */
+  flex: 1 1 400px; /* Allow charts to grow/shrink, base width 400px */
+  min-width: 300px; /* Minimum width before wrapping */
+}
+
+/* Listings Grid Area */
+.seller-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(280px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+  margin-top: 15px;
+}
+
+/* Slider Area Placeholder */
+.seller-slider-area p {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 30px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+}
+
+/* Upload Button Area */
+.seller-upload-area {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.upload-photos-button {
+  padding: 10px 20px;
+  background-color: #2563eb; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.upload-photos-button:hover {
+  background-color: #1d4ed8; /* Darker blue */
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+  .seller-charts-area {
+    flex-direction: column; /* Stack charts on smaller screens */
+  }
+  .seller-listings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

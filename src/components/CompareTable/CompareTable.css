@@ -1,0 +1,29 @@
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin:  0;
+  background: var(--table-bg);
+  color: var(--table-text-primary);
+  border-radius: 8px;
+}
+.compare-table th, .compare-table td {
+  padding: 0.75rem 1.2rem;
+  border: 1px solid var(--table-border-color);
+  text-align: center;
+}
+.compare-table th {
+  background: var(--table-bg);
+  font-weight: 600;
+}
+.compare-table tr.matched td {
+  background: var(--table-text-primary);
+  color: var(--table-text-primary);
+}
+.compare-table tr.different td {
+  background: var(--table-text-primary);
+  color: var(--table-text-primary);
+}
+.compare-table tr:hover td {
+  background: var(--table-text-primary);
+}

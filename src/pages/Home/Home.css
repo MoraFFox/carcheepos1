@@ -1,0 +1,159 @@
+/* Mobile-first styles */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* -------------------------- Hero Section -------------------------- */
+.hero {
+  position: relative;
+  background: url("https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress") center/cover no-repeat;
+  min-height: 60vh;
+  color: #fff;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero__subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero__search {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero__input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.hero__button {
+  padding: 0.75rem 1.25rem;
+  background-color: #ff5a5f;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ---------------------- Featured Listings ------------------------ */
+.section__title {
+  margin: 0 1rem 1rem;
+  font-size: 1.5rem;
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.car-card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+}
+
+.car-card__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.car-card__info {
+  padding: 0.75rem 1rem;
+}
+
+/* ------------------------- How It Works ------------------------- */
+.how__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.how__step {
+  text-align: center;
+}
+
+.how__number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #ff5a5f;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* --------------------- Browse By Category ----------------------- */
+.browse__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding: 0 1rem 2rem;
+}
+
+.browse__item {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+/* --------------------- Desktop overrides ------------------------ */
+@media screen and (min-width: 768px) {
+  .hero__title {
+    font-size: 3rem;
+  }
+  .hero__subtitle {
+    font-size: 1.25rem;
+  }
+  .featured__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .how__steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .browse__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    min-height: 70vh;
+  }
+}

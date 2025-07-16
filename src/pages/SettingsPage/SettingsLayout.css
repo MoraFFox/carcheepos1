@@ -1,0 +1,54 @@
+.settings-desktop-layout {
+  display: flex;
+  gap: 32px;
+  max-width: 1260px;
+  margin: 0 5rem;
+  padding: 40px 20px;
+}
+
+.settings-side-nav {
+  width: 220px;
+  border-right: 1px solid var(--divider);
+}
+.settings-side-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.settings-side-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: background 0.15s;
+}
+.settings-side-item:hover {
+  background: var(--divider);
+}
+.settings-side-item.active {
+  background: var(--primary);
+  color: #fff;
+}
+.settings-side-icon {
+  width: 20px;
+  height: 20px;
+}
+.settings-side-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Hide side nav on small screens */
+@media (max-width: 767px) {
+  .settings-desktop-layout {
+    flex-direction: column;
+    padding: var(--settings-padding);
+  }
+  .settings-side-nav {
+    display: none;
+  }
+}

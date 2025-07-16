@@ -1,0 +1,233 @@
+/* AI Suggestions Component Styles */
+.ai-suggestions {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color: var(--background);
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ai-suggestions-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  padding: 20px;
+  color: var(--text);
+  background-color: var(--lightPrimary);
+  margin: 0;
+  border-bottom: 2px solid var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* Tabs Navigation */
+.ai-tabs {
+  display: flex;
+  background-color: var(--background);
+  padding: 0 16px;
+  border-bottom: 1px solid var(--bg);
+}
+
+.ai-tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.2s ease-in-out;
+}
+
+.ai-tab:hover {
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+.ai-tab.active {
+  color: var(--text);
+  border-bottom: 3px solid var(--accent);
+  background-color: var(--bg);
+}
+
+/* Content Area */
+.ai-content {
+  padding: 24px;
+  min-height: 200px;
+}
+
+/* Loading State */
+.ai-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  border-top-color: var(--accent);
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ai-loading p {
+  margin-top: 16px;
+  color: var(--secondary);
+}
+
+/* Start Message */
+.ai-start {
+  text-align: center;
+  color: var(--secondary);
+  padding: 30px 0;
+}
+
+/* Similar Cars Tab */
+.similar-cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 10px;
+}
+
+.no-suggestions {
+  grid-column: span 3;
+  text-align: center;
+  padding: 30px;
+  color: var(--secondary);
+  font-style: italic;
+  background-color: var(--background);
+  border-radius: 8px;
+  border: 1px dashed var(--bg);
+}
+
+.similar-car-card {
+  background-color: var(--background);
+  border: 1px solid var(--bg);
+  border-radius: 6px;
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.similar-car-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--bg);
+}
+
+.similar-car-card h4 {
+  margin: 0 0 8px 0;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.similar-car-price {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+.similar-car-reason {
+  color: var(--secondary);
+  font-size: 0.9rem;
+  margin: 8px 0 0 0;
+}
+
+/* Value Analysis Tab */
+.value-analysis {
+  background-color: var(--background);
+  border: 1px solid var(--bg);
+  border-radius: 6px;
+  padding: 20px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Maintenance Tab */
+.maintenance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  background-color: var(--background);
+}
+
+.maintenance-table th,
+.maintenance-table td {
+  border: 1px solid var(--bg);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.maintenance-table th {
+  background-color: var(--background);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.priority {
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+}
+
+.priority-high {
+  background-color: var(--bg);
+  color: #b91c1c;
+}
+
+.priority-medium {
+  background-color: var(--bg);
+  color: #b45309;
+}
+
+.priority-low {
+  background-color: var(--bg);
+  color: #166534;
+}
+
+.maintenance-note {
+  color: var(--secondary);
+  font-style: italic;
+  margin-top: 16px;
+  padding: 12px;
+  background-color: var(--background);
+  border-radius: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ai-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .ai-tab {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .similar-cars {
+    grid-template-columns: 1fr;
+  }
+  
+  .maintenance-table th,
+  .maintenance-table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}

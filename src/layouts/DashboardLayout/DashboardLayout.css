@@ -1,0 +1,108 @@
+.dashboard-layout {
+  position: relative;
+  display: flex;
+  /* Changed to flex for simpler main axis control */
+  min-height: 100vh;
+  background-color: var(--altBackground);
+  /* Light background for the whole layout */
+}
+
+
+.dashboard-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  /* width is effectively 100% of its container due to flex-grow */
+  position: relative;
+  margin-left: 260px;
+  /* Default margin for expanded sidebar */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar-collapsed .dashboard-main {
+  margin-left: 80px;
+  /* Margin for collapsed sidebar */
+}
+
+@media (min-width: 2050px) {
+  .sidebar-collapsed .dashboard-main {
+    margin-left: 260px !important;
+    /* Default margin for expanded sidebar */
+    transition: margin-left 0.3s ease-in-out;
+  }
+
+  .dashboard-main {
+    margin-left: 460px !important;
+    /* Default margin for expanded sidebar */
+    transition: margin-left 0.3s ease-in-out;
+  }
+}
+
+.dashboard-content {
+  margin-top: 7vh;
+  flex-grow: 1;
+  width: 100%;
+  /* Takes full width of .dashboard-main */
+  padding: 25px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-main {
+    margin-left: 0 !important;
+    /* Ensure no margin on mobile */
+  }
+
+  .dashboard-content {
+    margin-top: 4rem;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  /* Sidebar specific adjustments for mobile are now handled by Sidebar.css 
+     and its default overlay behavior. The .sidebar class itself is styled there. 
+     The .mobile-sidebar-overlay might still be useful if controlled by JS 
+     to darken the background when the sidebar is open. */
+}
+
+/* Mobile Sidebar Overlay */
+.mobile-sidebar-overlay {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  z-index: 999;
+  /* Below sidebar (1000), above header (950) and content */
+}
+
+@media (max-width: 768px) {
+
+  /* Overlay display is controlled by JS adding/remoidg a class or directly by sidebar state */
+  /* For example, if Sidebar component adds 'open' to its parent or a global state is used */
+  .dashboard-layout.sidebar-open .mobile-sidebar-overlay {
+    display: block;
+  }
+}
+
+/* Desktop specific adjustments for padding */
+@media (min-width: 1024px) {
+  .dashboard-content {
+
+    padding: 30px 40px;
+    /* More padding on larger screens */
+    /* margin-left for .dashboard-main is handled by .sidebar-collapsed or default .dashboard-main styles */
+  }
+}

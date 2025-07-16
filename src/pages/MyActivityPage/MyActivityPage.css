@@ -1,0 +1,230 @@
+/* Styles for MyActivityPage.jsx */
+
+.my-activity-page {
+  /* Updated class name */
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.my-activity-page h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.my-activity-page h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.my-activity-page h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+
+/* Tab Styles */
+.activity-tabs {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  margin-bottom: 20px;
+
+}
+
+.activity-tabs::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  z-index: 0;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  margin-right: 5px;
+  border-bottom: 3px solid transparent;
+  /* For active indicator */
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  z-index: 1;
+}
+
+.tab-button:hover {
+  color: #007bff;
+}
+
+.tab-button.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+  font-weight: 600;
+}
+
+/* Keep existing styles for sections, charts, grid etc. */
+/* Adjust if necessary based on the new tab structure */
+
+.overview-seller-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  /* Add margin if needed */
+}
+
+.seller-section-area {
+  margin-bottom: 20px;
+}
+
+.seller-charts-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.seller-listings-grid {
+  display: grid;
+  /* Use auto-fit to create as many columns as fit */
+  /* Set a minimum column width (e.g., 280px) and allow them to grow */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  /* Adjust gap as needed */
+  margin-top: 20px;
+}
+
+/* Optional: Adjustments for very small screens if needed */
+@media (max-width: 600px) {
+  .seller-listings-grid {
+    /* Maybe force single column on very small screens */
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+
+
+.upload-photos-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-photos-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .my-activity-page {
+    padding: 0px;
+    /* Reduce padding on smaller screens */
+  }
+
+  .my-activity-page h1 {
+    font-size: 1.5rem;
+    /* Adjust h1 font size */
+  }
+
+  .my-activity-page h2 {
+    font-size: 1.25rem;
+    /* Adjust h2 font size */
+  }
+
+  .my-activity-page h4 {
+    font-size: 1rem;
+    /* Adjust h4 font size */
+  }
+
+  .tab-button {
+    padding: 8px 12px;
+    /* manifacture tab buttons more compact */
+    font-size: 0.9rem;
+  }
+
+  .overview-seller-section {
+    padding: 15px;
+  }
+
+  .seller-charts-area,
+  .seller-listings-grid {
+    grid-template-columns: 1fr;
+    /* Stack on smaller screens */
+  }
+
+  .activity-tabs {
+    overflow-x: auto;
+    /* Allow horizontal scrolling for tabs if many */
+    white-space: nowrap;
+  }
+}
+
+/* Desktop layout adjustments */
+@media (min-width: 1024px) {
+  .my-activity-page {
+    padding: 30px 40px;
+    /* Increase padding for more space */
+    width: 100%;
+    /* Optional: constrain max width on very large screens */
+    margin: 0 auto;
+    /* Center the content */
+  }
+
+  .activity-tabs {
+    justify-content: flex-start;
+    /* Align tabs to the start on larger screens */
+    overflow-x: visible;
+    /* No need for horizontal scroll */
+  }
+
+  .tab-button {
+    padding: 12px 25px;
+    /* Larger tab buttons */
+    font-size: 1.05rem;
+    margin-right: 10px;
+  }
+
+  .seller-charts-area {
+    /* Allow more columns for charts if they fit */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+
+  .seller-listings-grid {
+    /* Allow more columns for listings */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  .my-activity-page h1 {
+    font-size: 2rem;
+    /* Larger h1 for desktop */
+  }
+
+  .my-activity-page h2 {
+    font-size: 1.5rem;
+    /* Larger h2 for desktop */
+  }
+
+  .my-activity-page h4 {
+    font-size: 1.15rem;
+    /* Larger h4 for desktop */
+  }
+}

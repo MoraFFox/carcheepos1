@@ -1,0 +1,192 @@
+.seller-car-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  height: 100%;
+  border: 1px solid #f0f0f0;
+  transition: 0.3s;
+}
+
+.seller-car-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.seller-card-img-container {
+  width: 100%;
+  flex-grow: 1;
+  height: 150px;
+  /* Fixed height for the image area */
+  overflow: hidden;
+  /* Remove potential top radius clipping if image is first */
+  border-bottom: 1px solid #f0f0f0;
+  /* Separator line */
+}
+
+.seller-card-img {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  object-fit: cover;
+  /* Cover the area, cropping if needed */
+}
+
+.seller-card-content {
+  padding: 15px;
+  /* Increase padding slightly */
+  /* flex-grow: 1;  */
+}
+
+.seller-card-title {
+  display: flex;
+  justify-content: space-between;
+  /* Space out title and price */
+  align-items: center;
+  font-size: 1.05rem;
+  /* Adjust size */
+  font-weight: 600;
+  color: #333;
+  /* Darker color */
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seller-card-title span:nth-child(2) {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.seller-card-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.seller-card-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid var(--secondary);
+}
+
+.seller-card-stats span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.stat-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  color: var(--text);
+}
+
+.seller-card-actions {
+  display: flex;
+  justify-content: space-around;
+  /* Distribute buttons evenly */
+  padding: 10px 15px;
+  /* Adjust padding */
+  border-top: 1px solid #f0f0f0;
+  /* Lighter separator line */
+  background-color: #fdfdfd;
+  /* Very light background for actions */
+}
+
+.action-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.action-button:hover {
+  color: var(--primary);
+}
+
+.action-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.edit-button:hover {
+  color: var(--primary);
+  /* Blue */
+}
+
+.delete-button:hover {
+  color: #dc2626;
+  /* Red */
+}
+
+.view-button {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.view-button:hover {
+  color: var(--primary);
+}
+
+/* Styles for Sold Cards */
+.seller-car-card.sold {
+  opacity: 0.7;
+  position: relative;
+  /* Needed for overlay positioning */
+}
+
+.seller-car-card.sold .seller-card-img-container::after {
+  content: "SOLD";
+  position: absolute;
+  top: 75px;
+  /* Adjust based on the image container height (150px / 2) */
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  background-color: rgba(220,
+      38,
+      38,
+      0.85);
+  /* Slightly adjusted red, more opaque */
+  color: white;
+  font-size: 1.6rem;
+  /* Slightly larger font */
+  font-weight: bold;
+  padding: 10px 18px;
+  /* Slightly larger padding */
+  border-radius: 6px;
+  z-index: 10;
+  pointer-events: none;
+  /* Allow clicks through the overlay */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* Add subtle text shadow for better readability */
+}
+
+/* Adjust actions alignment when only 'View' is present */
+.seller-car-card.sold .seller-card-actions {
+  justify-content: center;
+  /* Center the single 'View' button */
+}
+
+/* Optionally hide stats completely on sold cards if not done via JS */
+/* .seller-car-card.sold .seller-card-stats {
+  display: none;
+} */

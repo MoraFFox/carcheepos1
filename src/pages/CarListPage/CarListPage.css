@@ -1,0 +1,66 @@
+/**
+ * CarListPage.css
+ *
+ * @format
+ */
+
+/* Mobile-first approach */
+.car-list-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Container for the car grid */
+.car-grid-container {
+  flex: 1;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  overflow: auto;
+}
+
+/* Tablet Layout (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .car-list-page {
+    padding: 0;
+  }
+
+  .car-grid-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  /* Adjust spacing when filters are collapsed */
+  .car-list-page.filters-collapsed .car-grid-container {
+    max-width: 95%;
+  }
+}
+
+/* Desktop Layout (1024px and above) */
+@media (min-width: 1024px) {
+
+
+  .car-list-page {
+    display: flex;
+    
+    padding: 20px;
+  }
+
+  /* Adjust layout when filters are collapsed */
+
+  .car-list-page.filters-collapsed .car-grid-container {
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+

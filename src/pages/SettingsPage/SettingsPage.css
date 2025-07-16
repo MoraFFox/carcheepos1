@@ -1,0 +1,132 @@
+/* SettingsPage styles */
+
+:root {
+  --settings-padding: 20px;
+}
+
+.settings-container {
+  padding: var(--settings-padding);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Profile card */
+.settings-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.settings-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.settings-profile-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.edit-profile-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Lists */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  border-top: 1px solid var(--divider);
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  cursor: pointer;
+}
+.settings-item + .settings-item {
+  border-top: 1px solid var(--divider);
+}
+
+.settings-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.settings-item-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.settings-item-chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--muted);
+}
+.settings-item-chevron.external {
+  transform: rotate(-45deg);
+}
+
+/* Section titles */
+.settings-section-title {
+  margin: 0 0 8px 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Footer */
+.settings-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.settings-logo {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.settings-terms {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+/* Mobile handle indicator like modal sheet */
+@media (max-width: 480px) {
+  .settings-container {
+    padding-top: 12px;
+  }
+  .settings-container::before {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--divider);
+    margin: 0 auto 12px;
+  }
+}

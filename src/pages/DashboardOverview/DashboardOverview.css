@@ -1,0 +1,113 @@
+/* Styles for DashboardOverview.jsx */
+
+.dashboard-overview {
+  /* padding: 20px; Removed, as parent .dashboard-content provides padding */
+  min-height: 100dvh;
+
+  /* Ensure it takes at least full viewport height */
+  /* width: 100%; Removed, block elements take full width by default */
+  /* margin: 0 auto; Removed, centering likely handled by parent */
+}
+
+.dashboard-overview h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* General Section Styling */
+.overview-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  /* Removed border-bottom: 1px solid #eee; */
+}
+
+/* Quick Stats Section */
+.quick-stats-section {
+  border-bottom: 1px solid #eee;
+  /* Add border back specifically here if desired */
+}
+
+.stats-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow cards to wrap on smaller screens */
+  gap: 15px;
+  /* Space between cards */
+  margin-top: 10px;
+  /* Space below the 'Quick Stats' heading */
+}
+
+.overview-section h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Placeholder styles (if any remain) */
+.overview-section p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* My Ads Preview Section */
+.my-ads-preview-section {
+  /* Add specific styles if needed, like border */
+  border-bottom: 1px solid #eee;
+}
+
+.preview-grid {
+  /* Use the existing grid styles but maybe limit columns for preview */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  height: max-content;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* Space before the link */
+}
+
+.view-all-ads-link {
+  display: inline-flex;
+  /* Align icon and text */
+  align-items: center;
+  padding: 8px 15px;
+  background-color: #f3f4f6;
+  /* Light gray background */
+  color: #374151;
+  /* Darker gray text */
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.view-all-ads-link:hover {
+  background-color: #e5e7eb;
+  /* Slightly darker gray on hover */
+  color: #1f2937;
+}
+
+.view-all-ads-link svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+  .stats-cards-container {
+    /* Adjust layout for smaller screens if needed, e.g., stack cards */
+    /* flex-direction: column; */
+  }
+
+  .preview-grid {
+    grid-template-columns: repeat(auto-fill,
+        minmax(220px, 1fr));
+    /* Smaller cards on mobile */
+  }
+}
+
+/* Removed seller-specific styles and responsive rules */

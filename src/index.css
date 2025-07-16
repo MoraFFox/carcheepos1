@@ -1,0 +1,236 @@
+/* Basic CSS Reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Roboto', monospace;
+}
+svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Define theme values as CSS variables */
+/* :root {
+  --font-sans: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --text: #101110;
+  --background: #f7faf8;
+  --primary: #5fb68f;
+  --secondary: #95e0bd;
+  --accent: #5ae3a4;
+  --divider: #e0e0e0;
+  --muted: #6b7280;
+  --bg: rgba(0, 255, 0, 0.103);
+  
+} */
+
+[data-theme='light'] {
+  --text: #101110;
+  --background: #ffffff;
+  --altBackground: #eeeeeed0;
+  --primary: #5eb68e;
+  --secondary: #95e0bd;
+  --accent: #5ae3a4;
+  --divider: #e0e0e0;
+  --muted: #6b7280;
+  --bg: rgba(0, 255, 0, 0.103);
+  --lightPrimary: rgba(0, 255, 0, 0.05);
+  --sb1:rgba(0, 255, 0, 0.4);
+  --sb2:rgba(0, 255, 0, 0.3);
+  --sb3:rgba(0, 255, 0, 0.2);
+  --sb4:rgba(0, 255, 0, 0.1);
+  --sb5:rgba(0, 255, 0, 0.05);
+  --border: rgba(0, 0, 0, 0.1);
+
+}
+
+[data-theme='dark'] {
+  --text: #eff0ef;
+  --background: #2b2b2b;
+  --altBackground: #1b1b1b;
+  --primary: #4aa17a;
+  --secondary: #1f6b47;
+  --accent: #1ca666dc;
+  --bg: rgba(0, 255, 0, 0.103);
+  --lightPrimary: rgba(0, 255, 0, 0.05);
+  --sb1:rgba(0, 255, 0, 0.4);
+  --sb2:rgba(0, 255, 0, 0.3);
+  --sb3:rgba(0, 255, 0, 0.2);
+  --sb4:rgba(0, 255, 0, 0.1);
+  --sb5:rgba(0, 255, 0, 0.05);
+  --border: rgb(112, 112, 112);
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --text: #03160c;
+    --background: #f2fdf7;
+    --primary: #2cdd82;
+    --secondary: #8cedea;
+    --accent: #53cae4;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e9fcf2;
+    --background: #020d07;
+    --primary: #22d377;
+    --secondary: #12736f;
+    --accent: #1b91ac;
+  }
+} */
+
+
+/* Apply base styles using CSS variables */
+body {
+  margin: 0; /* Keep margin 0 here */
+  background-color: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5; /* Set a default line-height */
+  overflow: hidden;
+}
+
+

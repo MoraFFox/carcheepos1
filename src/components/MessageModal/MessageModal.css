@@ -1,0 +1,139 @@
+.message-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.message-modal {
+  background: #2A2A2A;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  color: white;
+}
+
+.message-modal .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.message-modal .modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.message-modal__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message-modal__header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.message-modal__content {
+  padding: 1.5rem;
+}
+
+.message-input-group {
+  margin-bottom: 1.5rem;
+}
+
+.message-input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #CCC;
+  font-size: 0.9rem;
+}
+
+.message-input-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1A1A1A;
+  color: white;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.message-input-group textarea:focus {
+  outline: none;
+  border-color: #2196F3;
+}
+
+.message-input-group textarea::placeholder {
+  color: #666;
+}
+
+.message-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.message-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.message-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.message-btn.cancel {
+  background: #3A3A3A;
+  color: white;
+}
+
+.message-btn.send {
+  background: #2196F3;
+  color: white;
+}
+
+.message-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .message-modal {
+    margin: 0;
+  }
+
+  .message-modal__actions {
+    flex-direction: column;
+  }
+
+  .message-btn {
+    width: 100%;
+  }
+}

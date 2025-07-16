@@ -1,0 +1,122 @@
+.settings-subpage-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.settings-subpage-container h2 {
+  margin-bottom: 16px;
+}
+
+/* Appearance controls */
+.appearance-group {
+  margin-bottom: 24px;
+}
+
+.switch-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+}
+.switch-label input {
+  display: none;
+}
+.switch-slider {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  background: var(--divider, #ccc);
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+.switch-slider::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+input:checked + .switch-slider {
+  background: var(--primary);
+}
+input:checked + .switch-slider::after {
+  transform: translateX(18px);
+}
+
+/* Color swatches */
+.color-options {
+  display: flex;
+  gap: 12px;
+}
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+.color-swatch.selected {
+  border-color: var(--primary);
+}
+
+/* Profile form */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.form-group label {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.primary-btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.save-msg {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.error-msg {
+  color: #e11d48;
+  font-size: 0.9rem;
+}
+
+.danger-btn {
+  padding: 10px 20px;
+  background: #e11d48;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  opacity: 0.6;
+  cursor: not-allowed;
+}

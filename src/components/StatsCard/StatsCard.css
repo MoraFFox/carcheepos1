@@ -1,0 +1,40 @@
+.stats-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb; /* Light gray border */
+  min-width: 150px; /* Ensure cards have a minimum width */
+  flex: 1; /* Allow cards to grow */
+}
+
+.stats-card-icon {
+  margin-right: 15px;
+  color: #4b5563; /* Gray-700 */
+  /* Style the icon container if needed, e.g., background */
+}
+
+.stats-card-icon svg {
+  width: 24px; /* Adjust icon size as needed */
+  height: 24px;
+}
+
+.stats-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-card-value {
+  font-size: 1.5rem; /* Larger font for the value */
+  font-weight: 600;
+  color: #1f2937; /* Gray-800 */
+  line-height: 1.2;
+}
+
+.stats-card-label {
+  font-size: 0.875rem; /* Smaller font for the label */
+  color: #6b7280; /* Gray-500 */
+  margin-top: 2px;
+}

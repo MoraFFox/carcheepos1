@@ -1,0 +1,86 @@
+.races-chart-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  padding-bottom: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  /* Add some space below the card */
+}
+
+/* Re-use styles from PerformanceChart.css where applicable */
+
+
+.chart-title {
+  font-size: 1.1rem;
+  /* Increased font size */
+  font-weight: 600;
+  color: #1f2937;
+  /* Darker gray-800 for better contrast */
+}
+
+
+.chart-summary {
+  margin-bottom: 20px;
+}
+
+.summary-metric {
+  font-size: 2.25rem;
+  /* 36px */
+  font-weight: 700;
+  color: #111827;
+  /* gray-900 */
+  line-height: 1.2;
+}
+
+.summary-change {
+  font-size: 1rem;
+  /* 16px */
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.summary-change.positive {
+  color: #16a34a;
+  /* green-600 */
+}
+
+.summary-change.negative {
+  color: #dc2626;
+  /* red-600 */
+}
+
+
+
+/* Recharts specific overrides */
+.recharts-cartesian-axis-tick-value {
+  fill: #4b5563;
+  /* Darker gray-600 for better contrast */
+  font-size: 0.8rem;
+  /* Slightly larger tick labels */
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e5e7eb !important;
+  /* gray-200 */
+  background-color: #ffffff !important;
+}
+
+.recharts-tooltip-label {
+  font-weight: 600;
+  color: #374151;
+  /* gray-700 */
+}
+
+/* Specific to BarChart */
+.recharts-bar-rectangle rect {
+  transition: fill 0.2s ease-in-out;
+}

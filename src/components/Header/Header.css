@@ -1,0 +1,354 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px var(--sb2);
+  height: 7dvh;
+  position: fixed;
+  top: 0;
+  left: 260px;
+  z-index: 900;
+  width: calc(100% - 260px);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.dashboard-layout.sidebar-collapsed .header {
+  left: 80px;
+  width: calc(100% - 80px);
+}
+
+@media (min-width: 2050px) {
+  .header {
+    left: 460px !important;
+    width: calc(100% - 460px) !important;
+  }
+
+  .dashboard-layout.sidebar-collapsed .header {
+    left: 260px !important;
+    width: calc(100% - 260px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    left: 0 !important;
+    height: 60px !important;
+    width: 100% !important;
+  }
+
+}
+
+
+.header-search {
+  display: flex;
+  justify-self: flex-start;
+  flex-basis: 35%;
+  min-height: 20px;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: .5s;
+}
+
+
+
+
+@media (min-width: 2050px) {
+
+  .header-search {
+    display: flex;
+    flex-basis: 50%;
+    /* Adjust basis */
+    align-items: center;
+    background-color: var(--background);
+    /* Lighter background */
+    border: 1px solid var(--border);
+    /* Add border */
+    border-radius: 8px;
+    /* Adjust radius */
+    padding: 8px 12px;
+    /* Adjust padding */
+  }
+}
+
+.header-search-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text);
+  margin: 5px;
+  /* Icon color */
+
+}
+@media (min-width: 1950px) {
+  .header-search-icon {
+    width: 38px;
+    height: 38px;
+    color: var(--text);
+    /* Icon color */
+
+  }
+}
+
+.header-search input {
+  border: none;
+  outline: none;
+  background: var(--bg);
+  font-size: 0.9rem;
+  width: 0%;
+  opacity: 0;
+  transition: .5s;
+  height: 32px;
+  color: var(--text);
+  border-radius: 12px;
+  margin:6px;
+  padding-left: 12px;
+  
+}
+
+.header-search input::placeholder {
+  color: var(--sb1);
+  /* Placeholder color */
+}
+
+.header-actions {
+  display: flex;
+  flex-basis: calc(100% - 50%);
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  /* Adjust spacing */
+  margin-left: 20px;
+  /* Add margin to separate from search */
+}
+
+.header-post-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.header-post-btn:hover {
+  background-color: var(--primary);
+}
+
+.header-post-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.logo-icon-mob {
+  display: none;
+  /* Hidden by default, shown on mobile via media query */
+}
+
+/* Style for icon-only buttons like Notifications */
+.header-icon-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* For potential badge positioning */
+  color: var(--text);
+}
+
+.header-icon-btn:hover {
+  color: var(--text);
+}
+
+.header-icon {
+  width: 22px;
+  /* Adjust icon size */
+  height: 25px;
+  position: relative;
+}
+
+/* Optional Notification Badge */
+
+
+.header-user {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 10px;
+  /* Adjust gap */
+}
+
+.header-user-avatar {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--secondary);
+  border: 1px solid var(--primary);
+  color: var(--text);
+  /* Optional border */
+}
+
+.header-user-info {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.header-user-name {
+  text-wrap: nowrap;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* Optional User Rating */
+.header-user-rating {
+  width: fit-content;
+  font-size: 0.8rem;
+  color: #66708500;
+  background-image: linear-gradient(90deg, var(--accent) 60%, gold 60%);
+  background-clip: text;
+}
+
+/* Hamburger Menu Button for Mobile */
+.header-mobile-menu-btn {
+  display: none;
+  /* Hidden by default, shown on mobile via media query */
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.header-mobile-menu-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.header-notification-icon-mobile {
+  display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    left: 0;
+    padding: 10px 15px;
+    display: grid;
+    /* Use grid for the 3-column layout */
+    grid-template-columns: 1fr auto 1fr;
+    /* Left items, logo, right items */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 950;
+  }
+
+  .header-left-items {
+    grid-column: 1;
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Space between hamburger and bell */
+  }
+
+  .header-mobile-menu-btn {
+    display: block;
+    /* order: 0; /* Not needed with grid column */
+  }
+
+  .header-search {
+    display: none;
+    /* Hide search bar on mobile */
+  }
+
+  .logo-icon-mob {
+    grid-column: 2;
+    justify-self: center;
+    display: block !important;
+    /* Show mobile logo */
+    height: 30px;
+    /* Explicit height for mobile logo */
+    width: auto;
+    margin: 0;
+    /* Remove auto margin if grid handles centering */
+    /* order: 1; Not needed with grid column */
+  }
+
+  .header-actions {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 0;
+    /* order: 2; Not needed with grid column */
+  }
+
+  /* Mobile Notification Icons */
+  .header-notification-icon-mobile {
+    display: flex !important;
+    /* Ensure mobile bell is shown in .header-left-items */
+    align-items: center;
+  }
+
+  .header-icon-btn-desktop {
+    display: none !important;
+    /* Hide desktop bell icon */
+  }
+
+  /* Mobile Post Button */
+  .header-actions .header-post-btn {
+    padding: 8px;
+    /* Smaller padding for icon-only button */
+  }
+
+  .header-actions .header-post-btn span {
+    display: none;
+    /* Hide text "Post" on mobile */
+  }
+
+  .header-post-icon {
+    margin-right: 0;
+    /* No margin if text is hidden */
+  }
+
+  /* Mobile User Info */
+  .header-user-info {
+    display: none;
+    /* Hide user name and rating text */
+  }
+
+  .header-user-avatar {
+    width: 32px;
+    /* Slightly smaller avatar for mobile */
+    height: 32px;
+  }
+
+  /* Ensure header is full width on mobile even if sidebar state changes (for overlay sidebar) */
+  .dashboard-layout.sidebar-collapsed .header {
+    left: 0 !important;
+    /* Override desktop collapsed style */
+    width: 100% !important;
+    /* Override desktop collapsed style */
+  }
+}

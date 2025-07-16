@@ -1,0 +1,196 @@
+/* CarGrid.css - Grid Layout */
+
+/* Base styles - Mobile first */
+.car-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 5px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Tablet Layout - Start grid system */
+@media (min-width: 768px) {
+    .car-grid {
+        gap: 20px;
+        padding: 16px;
+    }
+
+    /* Grid spans for liked cards */
+   
+}
+
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    .car-grid {
+        gap: 30px;
+        padding: 24px;
+    }
+}
+
+
+
+/* Style for the 'no cars' message */
+.car-grid__no-cars-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Layout - Simple single column */
+@media (max-width: 767px) {
+    .car-grid {
+        display: flex;
+        gap: 15px;
+        padding: 5px;
+        width: 100%;
+        height: auto;
+        align-items: start;
+        gap: 20px;
+        padding: 16px;
+        grid-auto-rows: 260px;
+        grid-auto-flow: dense;
+    }
+
+   
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+    .car-grid {
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+        gap: 24px;
+        padding: 20px;
+    }
+
+
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    .car-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 24px;
+        max-width: 1800px;
+    }
+
+
+
+
+}
+
+
+
+/* Grid Loading State */
+.car-grid--loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.car-grid--loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(52, 152, 219, 0.3);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Grid Error State */
+.car-grid--error {
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 24px;
+    text-align: center;
+    color: #e74c3c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    gap: 16px;
+}
+
+.car-grid--error::before {
+    content: '⚠️';
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+/* Empty State */
+.car-grid--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    color: #666;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 2040px) {
+  .car-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 24px;
+    max-width: 100%;
+}
+}
+
+
+.car-grid__loading,
+.car-grid__error,
+.car-grid__no-data,
+.car-grid__no-cars-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+  width: 100%;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.car-grid__error {
+  color: #dc3545;
+  background: #ffe6e6;
+}
+
+.car-grid__loading {
+  color: #0056b3;
+  background: #e6f3ff;
+}
+
+.car-grid__no-data,
+.car-grid__no-cars-message {
+  color: #856404;
+  background: #fff3cd;
+}
