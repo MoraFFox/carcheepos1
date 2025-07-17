@@ -54,8 +54,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0;
+  padding: 14px 8px;
+  border-radius: 8px;
   cursor: pointer;
+}
+.settings-item:hover {
+  background: var(--sb1);
 }
 .settings-item + .settings-item {
   border-top: 1px solid var(--divider);
