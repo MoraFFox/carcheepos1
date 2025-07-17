@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 const colorTheme = {
   defaultTheme: {
-    mode: "light",
+    mode: "dark",
     primary: "#5fb68f",
     text: "#101110",
     background: "#f7faf8",
@@ -18,7 +18,7 @@ const colorTheme = {
     sb5: "rgba(0, 177, 59, 0.05)",
   },
   blueTheme: {
-    mode: "light",
+    mode: "dark",
     text: "#050315",
     background: "#fbfbfe",
     primary: "rgb(0, 135, 212)",
@@ -33,7 +33,7 @@ const colorTheme = {
     sb5: "rgba(0, 101, 184, 0.05)",
   },
   redTheme: {
-    mode: "light",
+    mode: "dark",
     text: "#060505",
     background: "#f8f2f4",
     primary: "#c0456d",
@@ -48,7 +48,7 @@ const colorTheme = {
     sb5: "rgba(200, 0, 50, 0.05)",
   },
   greenTheme: {
-    mode: "light",
+    mode: "dark",
     text: "#0a0f0e",
     background: "#f7fbfa",
     primary: "#61b7a0",
@@ -63,7 +63,7 @@ const colorTheme = {
     sb5: "rgba(0, 177, 59, 0.05)",
   },
   purpleTheme: {
-    mode: "light",
+    mode: "dark",
     text: "#060506",
     background: "#f8f7fa",
     primary: "#835cb6",
@@ -82,7 +82,7 @@ const colorTheme = {
 const getTheme = (c) => {
   switch (c) {
     case "#5fb68f":
-      return colorTheme.defaultTheme;
+      return colorTheme.greenTheme;
 
     case "#2f27ce":
       return colorTheme.blueTheme;
@@ -94,7 +94,7 @@ const getTheme = (c) => {
       return colorTheme.purpleTheme;
 
     default:
-      return colorTheme.greenTheme;
+      return colorTheme.defaultTheme;
   }
 };
 const ThemeContext = createContext();
@@ -104,7 +104,9 @@ export const ThemeProvider = ({ children }) => {
     return localStorage.getItem("themeMode") || colorTheme.defaultTheme.mode;
   });
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || colorTheme.defaultTheme;
+    const rawTheme = localStorage.getItem("theme");
+    console.log(rawTheme);
+    return JSON.parse(rawTheme) || colorTheme.defaultTheme;
   });
 
   // Update CSS vars
@@ -123,14 +125,14 @@ export const ThemeProvider = ({ children }) => {
       theme.lightPrimary
     );
     document.documentElement.style.setProperty("--bg", theme.bg);
-    console.log(theme.sb1)
     document.documentElement.style.setProperty("--sb1", theme.sb1);
     document.documentElement.style.setProperty("--sb2", theme.sb2);
     document.documentElement.style.setProperty("--sb3", theme.sb3);
     document.documentElement.style.setProperty("--sb4", theme.sb4);
     document.documentElement.style.setProperty("--sb5", theme.sb5);
     document.documentElement.style.setProperty("--sb6", theme.sb6);
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("theme", JSON.stringify(theme));
+    console.log(theme);
   }, [theme]);
 
   const toggleMode = () =>

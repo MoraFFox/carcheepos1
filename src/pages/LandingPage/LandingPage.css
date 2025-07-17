@@ -1,0 +1,22 @@
+/* Basic placeholder styles to unblock compilation. Replace with full responsive styles later. */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.landing-page main {
+  flex: 1 0 auto;
+}
+
+/* Mobile-first styles */
+.lp-header .logo {
+  font-size: 1.5rem;
+}
+
+/* Desktop override */
+@media (min-width: 768px) {
+  .lp-header .logo {
+    font-size: 2rem;
+  }
+}

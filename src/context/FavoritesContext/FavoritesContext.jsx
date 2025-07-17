@@ -26,7 +26,6 @@ export const FavoritesProvider = ({ children }) => {
         }
       });
       setFavorites(unique);
-      console.log(unique);
     } catch (err) {
       console.error('Failed to fetch favorite cars', err);
     }
