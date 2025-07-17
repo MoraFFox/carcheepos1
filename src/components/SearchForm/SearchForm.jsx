@@ -1,6 +1,6 @@
 import React from "react";
 import { Search, MapPin } from "lucide-react";
-
+import "./SearchForm.css";
 const SearchForm = ({ searchFilters, onSearchFiltersChange, onSearch }) => {
   const handleInputChange = (field, value) => {
     onSearchFiltersChange({

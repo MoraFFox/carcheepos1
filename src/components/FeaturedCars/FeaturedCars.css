@@ -1,0 +1,101 @@
+/* FeaturedCars.css - Layout & section styles (does NOT modify individual CarCard styles) */
+
+.featured-section {
+  padding: 4rem 5% 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.featured-section h2.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #0f1b31;
+  margin-bottom: 0.5rem;
+}
+
+.featured-section p.section-subtitle {
+  font-size: 1rem;
+  color: #516173;
+  margin-bottom: 2.5rem;
+}
+
+/* Grid wrapper for the existing CarCard components */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+}
+
+/* View all button */
+.view-all-btn, .btn-primary-large {
+  margin: 3rem auto 0;
+  background: #1754ff;
+  color: #fff;
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out;
+}
+
+.view-all-btn:hover {
+  background: #1040d8;
+}
+
+/* ------- Mobile adjustments ------- */
+/* Map component class names */
+.featured-cars {
+  padding: 4rem 5% 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.featured-cars .section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #0f1b31;
+  margin-bottom: 0.5rem;
+}
+
+.featured-cars .section-subtitle {
+  font-size: 1rem;
+  color: #516173;
+  margin-bottom: 2.5rem;
+}
+
+.featured-cars .cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.featured-cars .section-cta .btn-primary-large {
+  margin-top: 3rem;
+  background: #1754ff;
+  color: #fff;
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out;
+}
+
+.featured-cars .section-cta .btn-primary-large:hover {
+  background: #1040d8;
+}
+
+@media (max-width: 768px) {
+  .featured-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}

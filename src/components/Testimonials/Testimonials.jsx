@@ -1,6 +1,6 @@
 import React from "react";
 import { Star } from "lucide-react";
-
+import "./Testimonials.css";
 const Testimonials = () => {
   const testimonials = [
     {

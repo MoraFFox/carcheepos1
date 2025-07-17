@@ -1,140 +1,66 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Footer.css";
-
 const Footer = () => {
+  const footerSections = [
+    {
+      title: "Buy Cars",
+      links: [
+        { label: 'Search Cars', href: '#' },
+        { label: 'Featured Deals', href: '#' },
+        { label: 'Car Reviews', href: '#' },
+        { label: 'Financing', href: '#' }
+      ]
+    },
+    {
+      title: 'Sell Cars',
+      links: [
+        { label: 'List Your Car', href: '#' },
+        { label: 'Dealer Programs', href: '#' },
+        { label: 'Trade-In Value', href: '#' },
+        { label: 'Selling Tips', href: '#' }
+      ]
+    },
+    {
+      title: 'Support',
+      links: [
+        { label: 'Help Center', href: '#' },
+        { label: 'Contact Us', href: '#' },
+        { label: 'Safety Tips', href: '#' },
+        { label: 'Privacy Policy', href: '#' }
+      ]
+    }
+  ];
+
   return (
     <footer className="footer">
-      <div className="footer-container">
-        {/* Logo and Description */}
-        <div className="footer-logo-section">
-          <Link to="/" className="footer-logo">
-            Rivent
-          </Link>
-          <p className="footer-description">
-            Our vision is to provide convenience and help increase your sales
-            business.
-          </p>
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3>CarCHeepo</h3>
+            <p>Your trusted partner in finding the perfect car at the best price.</p>
+            <div className="social-links">
+              <a href="#" aria-label="Facebook">FB</a>
+              <a href="#" aria-label="Twitter">TW</a>
+              <a href="#" aria-label="Instagram">IG</a>
+              <a href="#" aria-label="LinkedIn">LI</a>
+            </div>
+          </div>
+          {footerSections.map((section, index) => (
+            <div key={index} className="footer-section">
+              <h4>{section.title}</h4>
+              <ul>
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <a href={link.href}>{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        {/* Links Sections */}
-        <div>
-          <h4 className="footer-section-title">About</h4>
-          <ul className="footer-links">
-            <li>
-              <Link to="/how-it-works" className="footer-link">
-                How it works
-              </Link>
-            </li>
-            <li>
-              <Link to="/featured" className="footer-link">
-                Featured
-              </Link>
-            </li>
-            <li>
-              <Link to="/partnership" className="footer-link">
-                Partnership
-              </Link>
-            </li>
-            <li>
-              <Link to="/business-relation" className="footer-link">
-                Business Relation
-              </Link>
-            </li>
-          </ul>
+        <div className="footer-bottom">
+          <p>&copy; 2024 CarCHeepo. All rights reserved.</p>
         </div>
-        <div>
-          <h4 className="footer-section-title">Socials</h4>
-          <ul className="footer-links">
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Discord
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Facebook
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="footer-section-title">Community</h4>
-          <ul className="footer-links">
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Events
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Podcast
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                Invite a friend
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Rivent. All rights reserved.
       </div>
     </footer>
   );

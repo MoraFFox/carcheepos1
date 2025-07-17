@@ -1,6 +1,6 @@
 import React from "react";
 import { Shield, DollarSign, Zap, Users } from "lucide-react";
-
+import "./WhyChooseUs.css";
 const WhyChooseUs = () => {
   const benefits = [
     {

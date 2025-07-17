@@ -1,5 +1,6 @@
 import React from "react";
 import { Palette, ChevronDown } from "lucide-react";
+import "./ThemeSwitcher.css";
 
 const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
   const themeOptions = [

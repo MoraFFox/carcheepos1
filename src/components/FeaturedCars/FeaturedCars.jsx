@@ -1,6 +1,7 @@
 import React from "react";
 
-import CarCard from "./CarCard";
+import CarCard from "../CarCard/CarCard";
+import "./FeaturedCars.css";
 
 const FeaturedCars = ({ cars, onViewDetails, onContactSeller }) => {
   return (

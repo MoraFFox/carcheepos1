@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shield, Users, Zap } from 'lucide-react';
-import SearchForm from './SearchForm';
-
+import SearchForm from '../SearchForm/SearchForm';
+import "./Hero.css";
 
 
 const Hero = ({
