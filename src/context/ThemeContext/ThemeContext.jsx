@@ -10,6 +10,7 @@ const colorTheme = {
     secondary: "#95e0bd",
     accent: "#5ae3a4",
     lightPrimary: "rgba(0, 255, 0, 0.05)",
+    darkPrimary: "rgba(0, 95, 51, 0.69)",
     bg: "rgba(0, 255, 0, 0.103)",
     sb1: "rgba(0, 177, 59, 0.4)",
     sb2: "rgba(0, 177, 59, 0.3)",
@@ -25,6 +26,7 @@ const colorTheme = {
     secondary: "rgb(131, 183, 255)",
     accent: "rgb(59, 167, 255)",
     lightPrimary: "rgba(0, 132, 255, 0.05)",
+    darkPrimary: "rgba(57, 93, 128, 0.48)",
     bg: "rgba(0, 101, 184, 0.1)",
     sb1: "rgba(0, 101, 184, 0.4)",
     sb2: "rgba(0, 101, 184, 0.3)",
@@ -40,6 +42,7 @@ const colorTheme = {
     secondary: "#e77ea0",
     accent: "#f45387",
     lightPrimary: "rgba(255, 0, 0, 0.05)",
+    darkPrimary: "rgba(119, 54, 54, 0.51)",
     bg: "rgba(255, 0, 0, 0.103)",
     sb1: "rgba(200, 0, 50, 0.4)",
     sb2: "rgba(200, 0, 50, 0.3)",
@@ -55,6 +58,7 @@ const colorTheme = {
     secondary: "#a2dccc",
     accent: "#68d2b5",
     lightPrimary: "rgba(0, 255, 0, 0.05)",
+    darkPrimary: "rgba(52, 114, 52, 0.49)",
     bg: "rgba(0, 255, 0, 0.103)",
     sb1: "rgba(0, 177, 59, 0.4)",
     sb2: "rgba(0, 177, 59, 0.3)",
@@ -70,6 +74,7 @@ const colorTheme = {
     secondary: "#b292dc",
     accent: "#925ada",
     lightPrimary: "rgba(131, 92, 182, 0.05)",
+    darkPrimary: "rgba(77, 54, 107, 0.49)",
     bg: "rgba(131, 92, 182, 0.103)",
     sb1: "rgba(131,92,182,0.4)",
     sb2: "rgba(131,92,182,0.3)",
@@ -124,6 +129,7 @@ export const ThemeProvider = ({ children }) => {
       "--lightPrimary",
       theme.lightPrimary
     );
+    document.documentElement.style.setProperty("--darkPrimary", theme.darkPrimary);
     document.documentElement.style.setProperty("--bg", theme.bg);
     document.documentElement.style.setProperty("--sb1", theme.sb1);
     document.documentElement.style.setProperty("--sb2", theme.sb2);

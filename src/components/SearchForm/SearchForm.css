@@ -1,6 +1,6 @@
 /* Search Form Component Styles */
 .search-container {
-    background: var(--surface);
+    background:linear-gradient(90deg, var(--bg) 0%, var(--sb1) 100%);
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -73,7 +73,7 @@
   .search-button {
     background: var(--primary);
     color: white;
-    border: none;
+    border: 3px solid rgba(0, 0, 0, 0.281);
     padding: 1rem;
     border-radius: 8px;
     font-weight: 600;
@@ -88,7 +88,7 @@
   }
   
   .search-button:hover {
-    background: var(--primary-dark);
+    background: var(--darkPrimary);
     transform: translateY(-2px);
   }
   

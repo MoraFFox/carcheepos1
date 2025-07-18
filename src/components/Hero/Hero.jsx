@@ -3,14 +3,13 @@ import { Shield, Users, Zap } from 'lucide-react';
 import SearchForm from '../SearchForm/SearchForm';
 import "./Hero.css";
 
-
 const Hero = ({
   searchFilters,
   onSearchFiltersChange,
   onSearch
 }) => {
   return (
-    <section className="hero">
+    <section className="hero" >
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">

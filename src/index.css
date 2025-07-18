@@ -1,3 +1,13 @@
+@import "./styles/animations.css";
+@import "./styles/accessibility.css";
+@import "./styles/Button.css";
+@import "./components/Footer/Footer.css";
+@import "./components/Header/Header.css";
+@import "./components/Hero/Hero.css";
+@import "./components/FeaturedCars/FeaturedCars.css";
+@import "./components/WhyChooseUs/WhyChooseUs.css";
+
+
 /* Basic CSS Reset */
 html,
 body,
@@ -175,7 +185,8 @@ svg {
   --divider: #e0e0e0;
   --muted: #6b7280;
   --bg: rgba(0, 255, 0, 0.103);
-  --lightPrimary: rgba(0, 255, 0, 0.05);
+  --lightPrimary: rgba(0, 255, 0, 0.205);
+  --darkPrimary: rgba(54, 122, 54, 0.51);
   --sb1:rgba(0, 255, 0, 0.4);
   --sb2:rgba(0, 255, 0, 0.3);
   --sb3:rgba(0, 255, 0, 0.2);
@@ -194,6 +205,7 @@ svg {
   --accent: #1ca666dc;
   --bg: rgba(0, 255, 0, 0.103);
   --lightPrimary: rgba(0, 255, 0, 0.05);
+  --darkPrimary: rgba(54, 122, 54, 0.51);
   --sb1:rgba(0, 255, 0, 0.4);
   --sb2:rgba(0, 255, 0, 0.3);
   --sb3:rgba(0, 255, 0, 0.2);

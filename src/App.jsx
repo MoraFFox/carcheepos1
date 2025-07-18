@@ -18,7 +18,7 @@ const MyActivityPage = lazy(() =>
 const PostCarPage = lazy(() => import("./pages/PostCarPage/PostCarPage"));
 const CarDetailPage = lazy(() => import("./pages/CarDetailPage/CarDetailPage"));
 const BookingsPage = lazy(() => import("./pages/BookingsPage/BookingsPage"));
-const Home = lazy(() => import("./pages/Home/Home"));
+// const Home = lazy(() => import("./pages/Home/Home"));
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
 const NotificationsPage = lazy(() =>
