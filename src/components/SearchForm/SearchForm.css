@@ -1,6 +1,6 @@
 /* Search Form Component Styles */
 .search-container {
-    background:linear-gradient(90deg, var(--bg) 0%, var(--sb1) 100%);
+    background:linear-gradient(90deg, var(--primary) 0%, var(--sb1) 100%);
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);

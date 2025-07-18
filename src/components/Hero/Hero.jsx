@@ -1,25 +1,30 @@
-import React from 'react';
-import { Shield, Users, Zap } from 'lucide-react';
-import SearchForm from '../SearchForm/SearchForm';
+import React from "react";
+import { Shield, Users, Zap } from "lucide-react";
+import SearchForm from "../SearchForm/SearchForm";
 import "./Hero.css";
 
-const Hero = ({
-  searchFilters,
-  onSearchFiltersChange,
-  onSearch
-}) => {
+const Hero = ({ searchFilters, onSearchFiltersChange, onSearch }) => {
   return (
-    <section className="hero" >
-      <div className="container">
+    <section className="hero">
+      <div className="hero-container">
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Find Your Perfect Car with <span className="title-accent">CarCHeepo</span>
+              Buy & Sell Cars with Ease
+              <span className="title-accent"> CarCHeepo</span>
             </h1>
             <p className="hero-subtitle">
-              Discover amazing deals on quality pre-owned vehicles from trusted dealers nationwide. 
-              Your dream car is just a search away.
+              Your dream car is just a search away
             </p>
+          </div>
+
+          {/* <SearchForm
+            searchFilters={searchFilters}
+            onSearchFiltersChange={onSearchFiltersChange}
+            onSearch={onSearch}
+          /> */}
+          <div className="hero-footer">
+            <button className="btn-primary">Get Yours Now</button>
             <div className="hero-features">
               <div className="feature">
                 <Shield className="feature-icon" />
@@ -35,12 +40,6 @@ const Hero = ({
               </div>
             </div>
           </div>
-
-          <SearchForm
-            searchFilters={searchFilters}
-            onSearchFiltersChange={onSearchFiltersChange}
-            onSearch={onSearch}
-          />
         </div>
       </div>
     </section>

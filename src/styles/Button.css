@@ -16,7 +16,7 @@
 
 .btn-primary:hover {
   background: var(--lightPrimary);
-  color: var(--background);
+  color: var(--text);
   transform: translateY(-1px);
 }
 
@@ -34,7 +34,7 @@
 
 .btn-primary-large:hover {
   background: var(--lightPrimary);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {

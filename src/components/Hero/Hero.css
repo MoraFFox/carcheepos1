@@ -1,21 +1,39 @@
 /* Hero Component Styles */
 .hero {
-    background: url("../../assets/Hero-photo.png");
-    background-size: cover;
+    background: url("../../assets/hero-car.png");
+    background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    padding: 4rem 0;
+    /* background-attachment: fixed; */
+    margin-top: 12vh;
     min-height: 100vh;
     display: flex;
     align-items: center;
+    color: var(--text);
+  }
+  .hero-container {
+    width: 100%;
+    max-width: 1160px;
+    margin-inline: auto;
+    padding-inline: 1rem;
   }
   
   .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    height: 130vh;
+  }
+
+  .hero-text {
+   grid-column: 1/3;
+   grid-row: 1/2;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   align-self: flex-start;
   }
   
   .hero-title {
@@ -31,11 +49,18 @@
   
   .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    color: gray;
     margin-bottom: 2rem;
     line-height: 1.6;
   }
-  
+  .hero-footer {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-end;
+  }
   .hero-features {
     display: flex;
     gap: 2rem;
@@ -46,7 +71,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-secondary);
+    color: var(--text);
     font-weight: 500;
   }
   

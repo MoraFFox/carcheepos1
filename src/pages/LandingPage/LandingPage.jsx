@@ -14,86 +14,91 @@ const mockCars = [
     id: 1,
     image: "https://via.placeholder.com/300x200",
     year: 2022,
-    make: "Toyota",
+    manifacture: "Toyota",
     model: "Camry",
     badge: "NEW",
     rating: 4.8,
-    mileage: "15,000",
+    mileage_km: "15,000",
     location: "New York, NY",
     price: 25000,
-    originalPrice: 28000,
+    originalPrice_usd: 28000,
     dealer: "City Auto Group",
-  },{
+  },
+  {
     id: 2,
     image: "https://via.placeholder.com/300x200",
     year: 2022,
-    make: "Toyota",
+    manifacture: "Toyota",
     model: "Camry",
     badge: "NEW",
     rating: 4.8,
-    mileage: "15,000",
+    mileage_km: "15,000",
     location: "New York, NY",
     price: 25000,
-    originalPrice: 28000,
+    originalPrice_usd: 28000,
     dealer: "City Auto Group",
-  },{
+  },
+  {
     id: 3,
     image: "https://via.placeholder.com/300x200",
     year: 2022,
-    make: "Toyota",
+    manifacture: "Toyota",
     model: "Camry",
     badge: "NEW",
     rating: 4.8,
-    mileage: "15,000",
+    mileage_km: "15,000",
     location: "New York, NY",
     price: 25000,
-    originalPrice: 28000,
+    originalPrice_usd: 28000,
     dealer: "City Auto Group",
-  },{
+  },
+  {
     id: 4,
     image: "https://via.placeholder.com/300x200",
     year: 2022,
-    make: "Toyota",
+    manifacture: "Toyota",
     model: "Camry",
     badge: "NEW",
     rating: 4.8,
-    mileage: "15,000",
+    mileage_km: "15,000",
     location: "New York, NY",
     price: 25000,
-    originalPrice: 28000,
+    originalPrice_usd: 28000,
     dealer: "City Auto Group",
-  },{
+  },
+  {
     id: 5,
     image: "https://via.placeholder.com/300x200",
     year: 2022,
-    make: "Toyota",
+    manifacture: "Toyota",
     model: "Camry",
     badge: "NEW",
     rating: 4.8,
-    mileage: "15,000",
+    mileage_km: "15,000",
     location: "New York, NY",
     price: 25000,
-    originalPrice: 28000,
+    originalPrice_usd: 28000,
     dealer: "City Auto Group",
-  },{
+  },
+  {
     id: 6,
     image: "https://via.placeholder.com/300x200",
     year: 2022,
-    make: "Toyota",
+    manifacture: "Toyota",
     model: "Camry",
     badge: "NEW",
     rating: 4.8,
-    mileage: "15,000",
+    mileage_km: "15,000",
     location: "New York, NY",
     price: 25000,
-    originalPrice: 28000,
+    originalPrice_usd: 28000,
     dealer: "City Auto Group",
-  }
+  },
 ];
 
 const LandingPage = () => {
   const [searchFilters, setSearchFilters] = useState({
-    make: "",
+    manifacture: "",
     model: "",
     priceRange: "",
     location: "",
@@ -117,11 +122,11 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <main>
-        <Header 
-        currentTheme={currentTheme}
-        setCurrentTheme={setCurrentTheme}
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
+        <Header
+          currentTheme={currentTheme}
+          setCurrentTheme={setCurrentTheme}
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
         />
         <Hero
           searchFilters={searchFilters}
