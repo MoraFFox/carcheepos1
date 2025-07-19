@@ -307,7 +307,8 @@
   }
 
   .car-card:hover {
-    animation: hover 0.5s ease-in-out;
+    transform: scale(1.02);
+    box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
   }
 
   .car-card__image-section {

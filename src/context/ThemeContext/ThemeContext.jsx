@@ -22,7 +22,7 @@ const colorTheme = {
     mode: "dark",
     text: "#050315",
     background: "#fbfbfe",
-    primary: "rgb(0, 135, 212)",
+    primary: "#0087d4",
     secondary: "rgb(131, 183, 255)",
     accent: "rgb(59, 167, 255)",
     lightPrimary: "rgba(0, 132, 255, 0.05)",
@@ -129,7 +129,10 @@ export const ThemeProvider = ({ children }) => {
       "--lightPrimary",
       theme.lightPrimary
     );
-    document.documentElement.style.setProperty("--darkPrimary", theme.darkPrimary);
+    document.documentElement.style.setProperty(
+      "--darkPrimary",
+      theme.darkPrimary
+    );
     document.documentElement.style.setProperty("--bg", theme.bg);
     document.documentElement.style.setProperty("--sb1", theme.sb1);
     document.documentElement.style.setProperty("--sb2", theme.sb2);

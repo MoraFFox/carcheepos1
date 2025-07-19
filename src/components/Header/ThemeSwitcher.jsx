@@ -6,8 +6,7 @@ import "./ThemeSwitcher.css";
 const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
   // If a parent passes handlers use them, otherwise rely on ThemeContext
   const { theme, setTheme, getTheme } = useTheme();
-  
-
+  console.log(theme.primary);
   const handleThemeChange = (value) => {
     if (onThemeChange) {
       onThemeChange(value);
@@ -15,19 +14,17 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
       // Map the simple value to the primary color that ThemeContext.getTheme expects
       const valueToPrimary = {
         default: "#5fb68f",
-        blue: "#2f27ce",
+        blue: "#0087d4",
         red: "#c0456d",
         green: "#61b7a0",
         purple: "#835cb6",
       };
-      console.log(valueToPrimary["#c0456d"]);
       const selectedPrimary = valueToPrimary[value] || "#5fb68f";
-      console.log(selectedPrimary);
       const newTheme = getTheme(selectedPrimary);
       setTheme(newTheme);
     }
   };
-    const themeOptions = [
+  const themeOptions = [
     { value: "default", label: "Default" },
     { value: "blue", label: "Ocean Blue" },
     { value: "red", label: "Racing Red" },
@@ -35,13 +32,11 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
     { value: "purple", label: "Royal Purple" },
   ];
 
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="theme-switcher">
-              <button
-          className="theme-button"
-          onClick={() => setOpen(!open)}>
+      <button className="theme-button" onClick={() => setOpen(!open)}>
         <Palette className="theme-icon" />
         <ChevronDown className="dropdown-icon" />
       </button>
@@ -51,7 +46,7 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
             <button
               key={value}
               onClick={() => handleThemeChange(value)}
-              className={currentTheme === value ? "active" : ""}
+              className={theme.primary === value ? "active" : ""}
             >
               {label}
             </button>
