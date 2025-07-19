@@ -14,16 +14,13 @@
   min-height: 445px;
   max-width: 100%;
   box-shadow: var(--background) 0px 4px 8px 0px, var(--background) 0px 8px 24px 8px;
-  max-height: 445px;
   overflow: hidden;
   color: var(--text);
-  
 }
 
 .car-card:hover {
-  transform: translateY(-4px);  
-  animation: hover 0.2s ease-in-out;
-  box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
+  /* transform: translateY(-4px);   */
+  animation: hover 0.5s ease-in-out;
 }
 
 
@@ -308,7 +305,7 @@
   }
 
   .car-card:hover {
-    transform: translateY(-4px);
+    animation: hover 0.5s ease-in-out;
   }
 
   .car-card__image-section {
@@ -399,6 +396,7 @@
 @keyframes hover {
   to {
     transform: translateY(-40px);
+    box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
   }
 }
 

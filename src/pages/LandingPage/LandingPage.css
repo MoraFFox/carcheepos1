@@ -9,6 +9,7 @@
 
 .landing-page main {
   flex: 1 0 auto;
+
 }
 
 /* Utility container */
@@ -28,6 +29,11 @@
 /* Mobile-first styles */
 .lp-header .logo {
   font-size: 1.5rem;
+}
+.car-card{
+  margin-bottom: 2rem;
+  box-shadow: none;
+  transition: all 1s ease;
 }
 
 /* Desktop override */

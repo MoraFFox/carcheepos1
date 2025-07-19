@@ -51,6 +51,7 @@
   padding: 4rem 5% 2rem;
   background: #ffffff;
   text-align: center;
+  height: max-content;
 }
 
 .featured-cars .section-title {

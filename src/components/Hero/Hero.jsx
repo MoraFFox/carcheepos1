@@ -4,6 +4,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import "./Hero.css";
 
 const Hero = ({ searchFilters, onSearchFiltersChange, onSearch }) => {
+
   return (
     <section className="hero">
       <div className="hero-container">
@@ -24,7 +25,17 @@ const Hero = ({ searchFilters, onSearchFiltersChange, onSearch }) => {
             onSearch={onSearch}
           /> */}
           <div className="hero-footer">
-            <button className="btn-primary">Get Yours Now</button>
+            {/*button to go to search section in page*/}
+            <button
+              className="hero-btn"
+              onClick={() =>
+                document.getElementsByClassName("why-choose")[0].scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
+              Get Yours Now
+            </button>
             <div className="hero-features">
               <div className="feature">
                 <Shield className="feature-icon" />

@@ -243,5 +243,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5; /* Set a default line-height */
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 

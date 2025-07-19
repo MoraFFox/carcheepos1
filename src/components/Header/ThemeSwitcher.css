@@ -33,7 +33,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background: var(--surface);
+  background: var(--background);
   border: 1px solid #E2E8F0;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -55,6 +55,7 @@
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
+  margin: 2px;
   text-align: left;
   background: none;
   border: none;
@@ -64,7 +65,7 @@
 }
 
 .theme-dropdown button:hover {
-  background: var(--background);
+  background: var(--sb1);
 }
 
 .theme-dropdown button.active {

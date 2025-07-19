@@ -15,7 +15,7 @@
 }
 
 .btn-primary:hover {
-  background: var(--lightPrimary);
+  background: var(--sb1);
   color: var(--text);
   transform: translateY(-1px);
 }
@@ -33,7 +33,7 @@
 }
 
 .btn-primary-large:hover {
-  background: var(--lightPrimary);
+  background: var(--sb1);
   transform: translateY(-1px);
 }
 
@@ -50,7 +50,7 @@
 }
 
 .btn-secondary:hover {
-  background: var(--lightPrimary);
+  background: var(--sb1);
   color: var(--primary);
 }
 
@@ -64,6 +64,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .btn-outline:hover {

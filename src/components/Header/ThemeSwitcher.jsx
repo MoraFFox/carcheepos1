@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Palette, ChevronDown } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext/ThemeContext";
 import "./ThemeSwitcher.css";
 
 const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
-  const themeOptions = [
+  // If a parent passes handlers use them, otherwise rely on ThemeContext
+  const { theme, setTheme, getTheme } = useTheme();
+  
+
+  const handleThemeChange = (value) => {
+    if (onThemeChange) {
+      onThemeChange(value);
+    } else {
+      // Map the simple value to the primary color that ThemeContext.getTheme expects
+      const valueToPrimary = {
+        default: "#5fb68f",
+        blue: "#2f27ce",
+        red: "#c0456d",
+        green: "#61b7a0",
+        purple: "#835cb6",
+      };
+      console.log(valueToPrimary["#c0456d"]);
+      const selectedPrimary = valueToPrimary[value] || "#5fb68f";
+      console.log(selectedPrimary);
+      const newTheme = getTheme(selectedPrimary);
+      setTheme(newTheme);
+    }
+  };
+    const themeOptions = [
     { value: "default", label: "Default" },
     { value: "blue", label: "Ocean Blue" },
     { value: "red", label: "Racing Red" },
@@ -11,23 +35,29 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
     { value: "purple", label: "Royal Purple" },
   ];
 
+    const [open, setOpen] = useState(false);
+
   return (
     <div className="theme-switcher">
-      <button className="theme-button">
+              <button
+          className="theme-button"
+          onClick={() => setOpen(!open)}>
         <Palette className="theme-icon" />
         <ChevronDown className="dropdown-icon" />
       </button>
-      <div className="theme-dropdown">
-        {themeOptions.map(({ value, label }) => (
-          <button
-            key={value}
-            onClick={() => onThemeChange(value)}
-            className={currentTheme === value ? "active" : ""}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+      {open && (
+        <div className="theme-dropdown">
+          {themeOptions.map(({ value, label }) => (
+            <button
+              key={value}
+              onClick={() => handleThemeChange(value)}
+              className={currentTheme === value ? "active" : ""}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
