@@ -16,11 +16,13 @@
   box-shadow: var(--background) 0px 4px 8px 0px, var(--background) 0px 8px 24px 8px;
   overflow: hidden;
   color: var(--text);
+  transition: all 0.5s ease;
 }
 
 .car-card:hover {
-  /* transform: translateY(-4px);   */
-  animation: hover 0.5s ease-in-out;
+  /* create a hover transition  */
+  transform: scale(1.02);
+  box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
 }
 
 
@@ -395,7 +397,7 @@
 }
 @keyframes hover {
   to {
-    transform: translateY(-40px);
+    transform: translateY(-2px);
     box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
   }
 }

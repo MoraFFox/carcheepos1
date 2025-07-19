@@ -5,11 +5,31 @@
   min-height: 100vh;
   background: #ffffff;
   color: #0f1b31;
+  overflow-y: scroll;
+}
+
+.landing-page::-webkit-scrollbar {
+  width: 10px;
+}
+
+.landing-page::-webkit-scrollbar-track {
+  background: var(--altBackground);
+}
+
+.landing-page::-webkit-scrollbar-thumb {
+  background: var(--sb1);
+}
+
+.landing-page::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 .landing-page main {
+  display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
-
+  gap: 2rem;
+background-color: var(--altBackground);
 }
 
 /* Utility container */
@@ -23,8 +43,8 @@
 /* Section header generic */
 .section-header { margin-bottom: 2.5rem; }
 
-.section-header .section-title { font-weight: 800; }
-.section-header .section-subtitle { color:#516173; }
+.section-header .section-title { font-weight: 800;color:var(--accent); }
+.section-header .section-subtitle { color:gray; }
 
 /* Mobile-first styles */
 .lp-header .logo {
@@ -33,7 +53,7 @@
 .car-card{
   margin-bottom: 2rem;
   box-shadow: none;
-  transition: all 1s ease;
+  flex: 0 1 360px;
 }
 
 /* Desktop override */

@@ -1,7 +1,7 @@
 /* Footer Component Styles */
 .footer {
-  background: var(--text-primary);
-  color: white;
+  background: var(--altBackground);
+  color: var(--text);
   padding: 3rem 0 1rem;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .footer-section ul li a:hover {
-  color: white;
+  color: var(--accent);
 }
 
 .social-links {

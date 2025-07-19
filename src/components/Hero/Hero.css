@@ -1,12 +1,12 @@
 /* Hero Component Styles */
 .hero {
-    background: url("../../assets/hero-car.png");
+    background: url("../../assets/hero.jpeg");
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
     margin-top: 0vh;
-    height: 100vh;
+    height: 150vh;
     display: flex;
     align-items: center;
     color: var(--text);
@@ -24,7 +24,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
   }
 
   .hero-text {
@@ -34,6 +34,8 @@
    flex-direction: column;
    align-items: center;
    color: white;
+   position: relative;
+   bottom: 20%;
   }
   
   .hero-title {

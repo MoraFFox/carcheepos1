@@ -6,7 +6,7 @@ import "./FeaturedCars.css";
 const FeaturedCars = ({ cars, onViewDetails, onContactSeller }) => {
   return (
     <section className="featured-cars">
-      <div className="container">
+      <div className="container-featured-cars">
         <div className="section-header">
           <h2 className="section-title">Featured Deals</h2>
           <p className="section-subtitle">

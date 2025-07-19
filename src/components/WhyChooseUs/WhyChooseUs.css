@@ -1,7 +1,7 @@
 /* Why Choose Us Component Styles */
 .why-choose {
     padding: 4rem 0;
-    background: var(--background);
+    background: var(--altBackground);
   }
   
   .benefits-grid {
@@ -11,11 +11,11 @@
   }
   
   .benefit-card {
-    background: var(--surface);
+    background: var(--background);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(139, 139, 139, 0.05);
     transition: transform 0.2s ease;
   }
   
@@ -26,8 +26,8 @@
   .benefit-icon {
     width: 60px;
     height: 60px;
-    background: var(--primary);
-    color: white;
+    background: var(--accent);
+    color: var(--text);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -39,10 +39,11 @@
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    color: var(--text);
   }
   
   .benefit-card p {
-    color: var(--text-secondary);
+    color: gray;
     line-height: 1.6;
   }
   

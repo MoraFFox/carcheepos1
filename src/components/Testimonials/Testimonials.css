@@ -1,7 +1,7 @@
 /* Testimonials Component Styles */
 .testimonials {
     padding: 4rem 0;
-    background: var(--surface);
+    background: var(--altBackground);
   }
   
   .testimonials-grid {
@@ -33,18 +33,18 @@
   .testimonial-card p {
     font-style: italic;
     margin-bottom: 1.5rem;
-    color: var(--text-secondary);
+    color: gray;
     line-height: 1.6;
   }
   
   .testimonial-author strong {
     display: block;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--text);
   }
   
   .testimonial-author span {
-    color: var(--text-secondary);
+    color: gray;
     font-size: 0.9rem;
   }
   

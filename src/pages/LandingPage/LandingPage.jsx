@@ -121,13 +121,13 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
+      <Header
+        currentTheme={currentTheme}
+        setCurrentTheme={setCurrentTheme}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
       <main>
-        <Header
-          currentTheme={currentTheme}
-          setCurrentTheme={setCurrentTheme}
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-        />
         <Hero
           searchFilters={searchFilters}
           onSearchFiltersChange={setSearchFilters}
@@ -142,9 +142,8 @@ const LandingPage = () => {
 
         <WhyChooseUs />
         <Testimonials />
+        <Footer />
       </main>
-
-      <Footer />
     </div>
   );
 };

@@ -242,9 +242,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5; /* Set a default line-height */
-}
-html {
+  /* overflow:hidden; */
   scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  width: 1px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 
