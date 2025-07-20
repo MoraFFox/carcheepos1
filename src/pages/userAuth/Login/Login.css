@@ -87,6 +87,7 @@ button[type="submit"]:hover {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
+    color: gray;
 }
 
 .login-link a {

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
+import QuizStepper from "../../components/HeroQuiz/QuizStepper";
 import FeaturedCars from "../../components/FeaturedCars/FeaturedCars";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Testimonials from "../../components/Testimonials/Testimonials";
@@ -122,8 +123,6 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <Header
-        currentTheme={currentTheme}
-        setCurrentTheme={setCurrentTheme}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
       />
@@ -133,6 +132,9 @@ const LandingPage = () => {
           onSearchFiltersChange={setSearchFilters}
           onSearch={handleSearch}
         />
+
+        {/* Car search quiz */}
+        <QuizStepper />
 
         <FeaturedCars
           cars={mockCars}

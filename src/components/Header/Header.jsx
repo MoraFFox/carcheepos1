@@ -1,8 +1,11 @@
-import React from "react";
+import React  from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
+
 import "./Header.css";
 const Header = ({ currentTheme, onThemeChange, isMenuOpen, onMenuToggle }) => {
+  const navigate = useNavigate();
   return (
     <header className="header">
       <div className="container">
@@ -15,10 +18,10 @@ const Header = ({ currentTheme, onThemeChange, isMenuOpen, onMenuToggle }) => {
 
           <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>
             <a href="#" className="nav-link">
-              Buy Cars
+              Buy 
             </a>
             <a href="#" className="nav-link">
-              Sell Your Car
+              Sell 
             </a>
             <a href="#" className="nav-link">
               Finance
@@ -33,11 +36,10 @@ const Header = ({ currentTheme, onThemeChange, isMenuOpen, onMenuToggle }) => {
 
           <div className="header-actions">
             <ThemeSwitcher
-              currentTheme={currentTheme}
               onThemeChange={onThemeChange}
             />
-            <button className="btn-outline">Sign In</button>
-            <button className="btn-primary">Sign Up</button>
+            <button className="btn-outline" onClick={() => {navigate('auth/login')}}>Sign In</button>
+            <button className="btn-primary" onClick={() => {navigate('auth/register')}}>Sign Up</button>
             <button className="menu-toggle" onClick={onMenuToggle}>
               {isMenuOpen ? <X /> : <Menu />}
             </button>

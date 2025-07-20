@@ -3,10 +3,9 @@ import { Palette, ChevronDown } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext/ThemeContext";
 import "./ThemeSwitcher.css";
 
-const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
+const ThemeSwitcher = ({ onThemeChange }) => {
   // If a parent passes handlers use them, otherwise rely on ThemeContext
   const { theme, setTheme, getTheme } = useTheme();
-  console.log(theme.primary);
   const handleThemeChange = (value) => {
     if (onThemeChange) {
       onThemeChange(value);
@@ -31,9 +30,14 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
     { value: "green", label: "Forest Green" },
     { value: "purple", label: "Royal Purple" },
   ];
-
+  const currentTheme = {
+    "#5fb68f": "default",
+    "#0087d4": "blue",
+    "#c0456d": "red",
+    "#61b7a0": "green",
+    "#835cb6": "purple",
+  };
   const [open, setOpen] = useState(false);
-
   return (
     <div className="theme-switcher">
       <button className="theme-button" onClick={() => setOpen(!open)}>
@@ -45,8 +49,8 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
           {themeOptions.map(({ value, label }) => (
             <button
               key={value}
-              onClick={() => handleThemeChange(value)}
-              className={theme.primary === value ? "active" : ""}
+              onClick={() => {handleThemeChange(value), console.log(value)}}
+              className={currentTheme[theme.primary] === value ? "active" : ""}
             >
               {label}
             </button>

@@ -1,0 +1,123 @@
+/* Hero Quiz Section Styles
+   Mobile-first then overrides for desktop */
+
+.hero-quiz {
+  width: 100%;
+  max-width: 500px;
+  margin: 6rem auto 3rem;
+  padding: 1.5rem;
+  background: var(--background);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* Progress bar */
+.quiz-progress {
+  height: 6px;
+  background: var(--divider);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-progress-bar {
+  height: 100%;
+  background: var(--primary);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Question card */
+.question-card {
+  text-align: center;
+}
+
+.question-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+/* Options grid – mobile (2 columns) */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.option-btn {
+  padding: 0.75rem 0.5rem;
+  background: var(--surface, var(--sb5));
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.option-btn:hover {
+  background: var(--sb3);
+}
+
+.option-btn:active {
+  transform: scale(0.98);
+}
+
+/* Result card */
+.hero-quiz-result {
+  animation: fade-in 0.6s ease;
+
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.car-result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.car-image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.car-info h2 {
+  margin: 0.25rem 0;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.car-info p {
+  margin: 0.1rem 0;
+  color: var(--muted);
+}
+
+/* DESKTOP   ——————————————————————————— */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+  .hero-quiz {
+    max-width: 700px;
+    padding: 2rem 3rem;
+  }
+
+  .question-title {
+    font-size: 1.5rem;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

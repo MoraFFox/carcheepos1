@@ -86,10 +86,10 @@ const colorTheme = {
 
 const getTheme = (c) => {
   switch (c) {
-    case "#5fb68f":
+    case "#61b7a0":
       return colorTheme.greenTheme;
 
-    case "#2f27ce":
+    case "#0087d4":
       return colorTheme.blueTheme;
 
     case "#c0456d":

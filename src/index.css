@@ -148,7 +148,6 @@ table {
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Roboto', monospace;
 }
 svg {
   display: flex;
@@ -160,20 +159,7 @@ svg {
   align-self: center;
 }
 
-/* Define theme values as CSS variables */
-/* :root {
-  --font-sans: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --text: #101110;
-  --background: #f7faf8;
-  --primary: #5fb68f;
-  --secondary: #95e0bd;
-  --accent: #5ae3a4;
-  --divider: #e0e0e0;
-  --muted: #6b7280;
-  --bg: rgba(0, 255, 0, 0.103);
-  
-} */
+
 
 [data-theme='light'] {
   --text: #101110;
@@ -214,36 +200,19 @@ svg {
   --border: rgb(112, 112, 112);
 }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    --text: #03160c;
-    --background: #f2fdf7;
-    --primary: #2cdd82;
-    --secondary: #8cedea;
-    --accent: #53cae4;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #e9fcf2;
-    --background: #020d07;
-    --primary: #22d377;
-    --secondary: #12736f;
-    --accent: #1b91ac;
-  }
-} */
 
 
-/* Apply base styles using CSS variables */
+
 body {
-  margin: 0; /* Keep margin 0 here */
+  margin: 0; 
   background-color: var(--background);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5; /* Set a default line-height */
-  /* overflow:hidden; */
+  line-height: 1.5; 
+
   scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
 }
 body::-webkit-scrollbar {
   width: 1px;
