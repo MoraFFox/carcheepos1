@@ -16,7 +16,7 @@ const FeaturedCars = ({ cars, onViewDetails, onContactSeller }) => {
         <div className="cars-grid">
           {cars.map((car) => (
             <CarCard
-              key={car.id}
+              key={car._id}
               car={car}
               onViewDetails={() => onViewDetails(car.id)}
               onContactSeller={() => onContactSeller(car.id)}

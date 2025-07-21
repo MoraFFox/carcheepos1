@@ -23,7 +23,7 @@
   /* Fixed height for the image area */
   overflow: hidden;
   /* Remove potential top radius clipping if image is first */
-  border-bottom: 1px solid var(--sb1);
+  border-bottom: 1px solid var(--background);
   /* Separator line */
 }
 
@@ -79,7 +79,7 @@
   color: var(--text);
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 2px solid var(--secondary);
+  border-top: 2px solid var(--background);
 }
 
 .seller-card-stats span {
@@ -100,7 +100,7 @@
   /* Distribute buttons evenly */
   padding: 10px 15px;
   /* Adjust padding */
-  border-top: 1px solid var(--sb1);
+  border-top: 2px solid var(--background);
   /* Lighter separator line */
   background-color: var(--altBackground);
   /* Very light background for actions */

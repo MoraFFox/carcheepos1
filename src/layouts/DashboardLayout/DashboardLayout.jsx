@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"; // Ensure useState is imported
 import Sidebar from "../../components/Sidebar/Sidebar";
-// import Header from "../../components/Header/Header";
+import Header from "../../components/Header/Header";
 import "./DashboardLayout.css";
 const DashboardLayout = ({ children }) => {
   

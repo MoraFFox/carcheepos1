@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./signup.css";
-import instance from "../../api/API-URL-AXIOS.JS";
+import instance from "../../../api/API-URL-AXIOS.JS";
 const Signup = () => {
   const signupUrl = "/api/v1/register-user";
   const [formData, setFormData] = useState({

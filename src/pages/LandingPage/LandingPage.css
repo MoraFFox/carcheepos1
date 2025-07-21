@@ -53,7 +53,43 @@ background-color: var(--altBackground);
 .car-card{
   margin-bottom: 2rem;
   box-shadow: none;
-  flex: 0 1 360px;
+  flex: 1 1 400px;
+}
+.car-card--liked .car-card__spec-item {
+  background: var(--sb1);
+  color: var(--text);
+  border: 2px solid var(--sb1);
+}
+
+.car-card--liked .car-card__spec-item:hover {
+  cursor: pointer;
+  background: var(--accent);
+}
+
+.car-card--liked .car-card__headline {
+  color: var(--primary);
+}
+
+.car-card--liked .car-card__btn {
+  background: var(--accent);
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+.car-card--liked .car-card__btn:hover {
+  background: var(--secondary);
+  border-radius: 18px;
+}
+
+.car-card--liked .car-card__price{
+  color: var(--accent);
+}
+.car-card--liked .car-card__image-section{
+  flex-grow: 1;
+  border-bottom: 2px solid var(--accent) !important;
+}
+.car-card--liked .car-card__details{
+ flex-grow: 0;
 }
 
 /* Desktop override */

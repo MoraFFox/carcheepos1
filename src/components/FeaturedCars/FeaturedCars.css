@@ -84,7 +84,7 @@
 .featured-cars .section-cta .btn-primary-large {
   margin-top: 3rem;
   background: var(--primary);
-  color: var(--text);
+  color: white;
   padding: 0.9rem 2.5rem;
   border: 2px solid var(--primary);
   border-radius: 8px;

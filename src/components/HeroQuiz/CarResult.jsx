@@ -4,8 +4,7 @@ const CarResult = ({ car }) => {
   if (!car) {
     return (
       <div className="no-result">
-        <h2>No cars match your criteria.</h2>
-        <p>Try adjusting your answers and search again.</p>
+        <h1>No cars match your criteria</h1>
       </div>
     );
   }

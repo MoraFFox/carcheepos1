@@ -1,17 +1,22 @@
 /* Header Component Styles */
 .header {
+  display: flex;
+  align-items: center;
   background: var(--background);
   width: 100%;
-max-height: fit-content;
-min-height: 5vh;
+  max-height: fit-content;
+  min-height: 5vh;
   border-bottom: 1px solid var(--text);
   position: fixed;
   top: 0;
   z-index: 100;
   align-content: center;
+  justify-content: space-between;
 }
 
+
 .nav-content {
+  flex: 1 1 80vw;
   display: flex;
   align-items: center;
   justify-content: space-between;

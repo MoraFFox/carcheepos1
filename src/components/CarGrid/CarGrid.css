@@ -65,30 +65,7 @@
    
 }
 
-/* Desktop Layout */
-@media (min-width: 1024px) {
-    .car-grid {
-        grid-template-columns: repeat(3, minmax(280px, 1fr));
-        gap: 24px;
-        padding: 20px;
-    }
 
-
-}
-
-/* Large Desktop */
-@media (min-width: 1440px) {
-    .car-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
-        padding: 24px;
-        max-width: 1800px;
-    }
-
-
-
-
-}
 
 
 
@@ -155,14 +132,8 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 2040px) {
-  .car-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 24px;
-    max-width: 100%;
-}
-}
+
+
 
 
 .car-grid__loading,

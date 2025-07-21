@@ -326,7 +326,7 @@
 
 .sidebar.collapsed .sidebar-nav a.active::before {
   left: 50%;
-  bottom: 6px;
+  bottom: 4px;
   transform: translateX(-50%);
   width: 6px;
   height: 6px;

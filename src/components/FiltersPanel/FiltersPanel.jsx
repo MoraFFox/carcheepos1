@@ -122,7 +122,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             {/* Actual scrollable content */}
             {/* manifacture Filter */}
             <div className='filter-group'>
-              <label htmlFor='manifacture-filter' className='filter-group-label'>manifacture</label>
+              <label htmlFor='manifacture-filter' className='filter-group-label header'>manifacture</label>
               <select
                 id='manifacture-filter'
                 name='manifacture'
@@ -142,7 +142,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Price Filter */}
             <div className='filter-group filter-group-slider'>
-              <label className='filter-group-label'>Price Range</label>
+              <label className='filter-group-label header'>Price Range</label>
               <Slider
                 range
                 min={0}
@@ -159,7 +159,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Transmission Filter */}
             <div className='filter-group filter-group-transmission'>
-              <label className='filter-group-label'>Transmission</label>
+              <label className='filter-group-label header'>Transmission</label>
               <div className='transmission-options'>
                 {/* Any Option */}
                 <label htmlFor='trans-any' className='transmission-option'>
@@ -212,7 +212,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Type Filter */}
             <div className='filter-group filter-group-car-type'>
-              <label className='filter-group-label'>Car Type</label>
+              <label className='filter-group-label header'>Car Type</label>
               <div className='car-type-options'>
                 {/* Any Option */}
                 <label htmlFor='type-any' className='car-type-option'>
@@ -301,7 +301,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Color Filter */}
             <div className='filter-group filter-group-color'>
-              <label className='filter-group-label'>Color</label>
+              <label className='filter-group-label header'>Color</label>
               <div className='color-options'>
                 <label htmlFor='color-any' className='color-option'>
                   <input
@@ -348,7 +348,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Seats Filter */}
             <div className='filter-group'>
-              <label htmlFor='capacity-filter' className='filter-group-label'>Seats</label>
+              <label htmlFor='capacity-filter' className='filter-group-label header'>Seats</label>
               <select
                 id='capacity-filter'
                 name='capacity'
@@ -364,7 +364,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Year Filter */}
             <div className='filter-group filter-group-slider'>
-              <label className='filter-group-label'>Year Range</label>
+              <label className='filter-group-label header'>Year Range</label>
               <Slider
                 range
                 min={1990}

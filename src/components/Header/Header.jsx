@@ -1,5 +1,5 @@
 import React  from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
@@ -17,21 +17,21 @@ const Header = ({ currentTheme, onThemeChange, isMenuOpen, onMenuToggle }) => {
           </div>
 
           <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>
-            <a href="#" className="nav-link">
+            <Link to="/cars" className="nav-link">
               Buy 
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="/sell" className="nav-link">
               Sell 
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="/finance" className="nav-link">
               Finance
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="/about" className="nav-link">
               About
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="/contact" className="nav-link">
               Contact
-            </a>
+            </Link>
           </nav>
 
           <div className="header-actions">
@@ -39,7 +39,7 @@ const Header = ({ currentTheme, onThemeChange, isMenuOpen, onMenuToggle }) => {
               onThemeChange={onThemeChange}
             />
             <button className="btn-outline" onClick={() => {navigate('auth/login')}}>Sign In</button>
-            <button className="btn-primary" onClick={() => {navigate('auth/register')}}>Sign Up</button>
+            <button className="btn-primary" onClick={() => {navigate('auth/signup')}}>Sign Up</button>
             <button className="menu-toggle" onClick={onMenuToggle}>
               {isMenuOpen ? <X /> : <Menu />}
             </button>

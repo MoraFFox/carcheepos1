@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
 import QuizStepper from "../../components/HeroQuiz/QuizStepper";
@@ -9,6 +9,9 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Footer from "../../components/Footer/Footer";
 import "./LandingPage.css";
+import { getAllCars } from "../../utils/api";
+/* get all cars from data base  */
+
 
 const mockCars = [
   {
@@ -98,6 +101,12 @@ const mockCars = [
 ];
 
 const LandingPage = () => {
+  const [cars, setCars] = useState([]);
+  useEffect(() => {
+    getAllCars().then((cars) => {
+      setCars(cars);
+    });
+  }, []);
   const [searchFilters, setSearchFilters] = useState({
     manifacture: "",
     model: "",
@@ -134,14 +143,14 @@ const LandingPage = () => {
         />
 
         {/* Car search quiz */}
-        <QuizStepper />
+
 
         <FeaturedCars
-          cars={mockCars}
+          cars={cars}
           onViewDetails={handleViewDetails}
           onContactSeller={handleContactSeller}
         />
-
+        <QuizStepper />
         <WhyChooseUs />
         <Testimonials />
         <Footer />

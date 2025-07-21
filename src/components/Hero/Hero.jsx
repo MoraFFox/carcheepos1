@@ -15,7 +15,7 @@ const Hero = ({ searchFilters, onSearchFiltersChange, onSearch }) => {
               <span className="title-accent"> CarCHeepo</span>
             </h1>
             <p className="hero-subtitle">
-              Your dream car is just a search away
+              Your dream car is just a clicks away
             </p>
           </div>
 
@@ -29,7 +29,8 @@ const Hero = ({ searchFilters, onSearchFiltersChange, onSearch }) => {
             <button
               className="hero-btn"
               onClick={() =>
-                document.getElementsByClassName("why-choose")[0].scrollIntoView({
+                window.scrollTo({
+                  top: 2800,
                   behavior: "smooth",
                 })
               }

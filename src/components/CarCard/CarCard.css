@@ -3,7 +3,7 @@
 .car-card {
   flex-grow: 1;
   flex-shrink: 1;
-  flex-basis: 300px;
+  flex-basis: 400px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -118,6 +118,9 @@
   padding: 8px;
   cursor: pointer;
 }
+.car-card__like-btn:focus{
+  outline: none;
+}
 
 .car-card__like-btn svg {
   width: 20px;
@@ -141,7 +144,7 @@
   transform: scale(1.1);
 }
 .car-card--liked .car-card__footer{
-  border-top: 2px solid #707070 !important;
+  border-top: 2px solid var(--altBackground) !important;
 }
 
 /* Car Details */
@@ -180,12 +183,12 @@
   align-items: center;
   gap: 0.3rem;
   padding: 4px 10px;
-  background: var(--primary);
+  background: var(--sb1);
   border-radius: 10px;
   font-size: 0.8rem;
-  color: var(--background);
+  color: var(--text);
   transition: all 0.2s ease;
-  border: 2px solid var(--secondary);
+  border: 2px solid var(--sb1);
 }
 
 .car-card__spec-item:hover {
@@ -207,12 +210,12 @@
   align-items: center;
   padding: 12px;
   background: var(--background);
-  border-top: 2px solid var(--text);
+  border-top: 2px solid var(--altBackground);
   margin-top: 1rem;
 }
 
 .car-card__price {
-  color: var(--primary);
+  color: var(--accent);
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: px;
@@ -225,7 +228,7 @@
   color: white;
   border: none;
   padding: 6px 14px;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 0.85rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -235,7 +238,7 @@
 
 .car-card__btn:hover {
   background: var(--secondary);
-  color: var(--text);
+  border-radius: 18px;
 }
 
 /* ========================================
@@ -303,7 +306,7 @@
 @media (min-width: 1024px) {
   .car-card {
     border-radius: 12px;
-    transition: transform 0.2s ease;
+    transition: transform 0.5s ease;
   }
 
   .car-card:hover {
@@ -355,7 +358,7 @@
 .car-card {
   break-inside: avoid;
   margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 /* Featured cards span wider */
@@ -387,7 +390,7 @@
 }
 /* Stagger card animations */   
 .car-grid .car-card {
-  animation:  cardAppear 0.3s ease forwards;
+  animation:  cardAppear 0.5s ease forwards;
   opacity: 0;
 }
 
