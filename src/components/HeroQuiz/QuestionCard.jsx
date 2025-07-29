@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-const QuestionCard = ({ question, options, onSelect }) => {
+const QuestionCard = forwardRef(({ question, options, onSelect }, ref) => {
   return (
-    <div className="question-card">
+    <div ref={ref} className="question-card">
       <h2 className="question-title">{question}</h2>
       <div className="options-grid">
         {options.map((opt) => (
@@ -17,6 +17,6 @@ const QuestionCard = ({ question, options, onSelect }) => {
       </div>
     </div>
   );
-};
+});
 
 export default QuestionCard;

@@ -1,0 +1,209 @@
+/* Authenticated top bar styles */
+.auth-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border-bottom: 1px solid var(--divider);
+  z-index: 100;
+  width: 100%;
+}
+
+.auth-container {
+  width: 100%;
+  height: 7vh;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.auth-logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* search */
+.auth-search {
+  flex: 1;
+  position: relative;
+}
+.auth-search input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--surface, var(--sb5));
+  color: var(--text);
+}
+.auth-search button {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* actions */
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: 6px;
+}
+.icon-btn:hover {
+  background: var(--sb5);
+}
+
+.add-car-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.add-car-btn:hover {
+  opacity: 0.9;
+}
+.btn-label {
+  display: none;
+}
+@media (min-width: 768px) {
+  .btn-label {
+    display: inline;
+  }
+}
+
+/* badge */
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* notifications dropdown */
+.notif-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 300px;
+  background: var(--background);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
+  animation: fade 0.2s ease;
+}
+.notif-dropdown h4 {
+  margin: 0 1rem 0.5rem;
+}
+.notif-item {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--divider);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+.notif-item.unread {
+  background: var(--lightPrimary);
+}
+.empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* user menu */
+.user-wrapper {
+  position: relative;
+}
+.avatar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+.avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.user-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 220px;
+  background: var(--background);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  animation: fade 0.2s ease;
+  padding: 0.5rem 0;
+}
+.user-dropdown button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.user-dropdown button:hover {
+  background: var(--sb5);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,5 +1,5 @@
 import React  from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
@@ -11,9 +11,11 @@ const Header = ({ currentTheme, onThemeChange, isMenuOpen, onMenuToggle }) => {
       <div className="container">
         <div className="nav-content">
           <div className="logo">
-            <h1>
-              Car<span className="logo-accent">CHeepo</span>
-            </h1>
+            <NavLink to="/" className="nav-link">
+              <h1>
+                Car<span className="logo-accent">CHeepo</span>
+              </h1>
+            </NavLink>
           </div>
 
           <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>

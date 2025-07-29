@@ -13,7 +13,7 @@
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 25px;
-  color: #333;
+  color: var(--secondary);
 }
 
 /* General Section Styling */
@@ -25,7 +25,7 @@
 
 /* Quick Stats Section */
 .quick-stats-section {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--divider);
   /* Add border back specifically here if desired */
 }
 
@@ -43,19 +43,19 @@
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 15px;
-  color: #444;
+  color: var(--muted);
 }
 
 /* Placeholder styles (if any remain) */
 .overview-section p {
-  color: #666;
+  color: var(--muted);
   line-height: 1.5;
 }
 
 /* My Ads Preview Section */
 .my-ads-preview-section {
   /* Add specific styles if needed, like border */
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--divider);
 }
 
 .preview-grid {
@@ -74,9 +74,9 @@
   /* Align icon and text */
   align-items: center;
   padding: 8px 15px;
-  background-color: #f3f4f6;
+  background-color: var(--sb1);
   /* Light gray background */
-  color: #374151;
+  color: var(--text);
   /* Darker gray text */
   border-radius: 6px;
   text-decoration: none;
@@ -85,9 +85,9 @@
 }
 
 .view-all-ads-link:hover {
-  background-color: #e5e7eb;
+  background-color: var(--sb2);
   /* Slightly darker gray on hover */
-  color: #1f2937;
+  color: var(--text);
 }
 
 .view-all-ads-link svg {
@@ -100,7 +100,7 @@
 @media (max-width: 768px) {
   .stats-cards-container {
     /* Adjust layout for smaller screens if needed, e.g., stack cards */
-    /* flex-direction: column; */
+    flex-direction: column; 
   }
 
   .preview-grid {

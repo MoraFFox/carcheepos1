@@ -14,13 +14,13 @@ export default [
   js.configs.recommended,
 
   // React recommended flat config
-  react.configs.flat.recommended,
+  ...react.configs.flat.recommended,
 
   // JSX-A11y recommended flat config
-  jsxA11y.flatConfigs.recommended,
+  ...jsxA11y.flatConfigs.recommended,
 
   // Tailwind CSS recommended flat config
-  tailwindcss.configs["flat/recommended"],
+  ...tailwindcss.configs["flat/recommended"],
 
   // Project-specific configuration for JS/JSX files
   {

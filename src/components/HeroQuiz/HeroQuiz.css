@@ -10,6 +10,9 @@
   border: 1px solid var(--divider);
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
 }
 
 /* Progress bar */
@@ -19,18 +22,61 @@
   border-radius: 3px;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .quiz-progress-bar {
   height: 100%;
   background: var(--primary);
   width: 0%;
-  transition: width 0.5s ease;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  transform-origin: left center;
+}
+
+/* Speedometer effect for progress bar */
+.quiz-progress-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-45deg);
+  animation: speedometer-glow 1.5s infinite;
 }
 
 /* Question card */
 .question-card {
   text-align: center;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: visible;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide animations between questions with 3D effects */
+.question-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, -100px) rotateY(-15deg);
+}
+
+.question-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.question-exit {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0);
+}
+
+.question-exit-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, -100px) rotateY(15deg);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .question-title {
@@ -38,6 +84,9 @@
   font-weight: 700;
   margin-bottom: 1.25rem;
   color: var(--text);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-up 0.6s ease forwards;
 }
 
 /* Options grid – mobile (2 columns) */
@@ -45,6 +94,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .option-btn {
@@ -55,30 +105,51 @@
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.5s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
 }
+
+/* Staggered fade effect for option buttons */
+.option-btn:nth-child(1) { animation: fade-up 0.4s ease 0.1s forwards; }
+.option-btn:nth-child(2) { animation: fade-up 0.4s ease 0.2s forwards; }
+.option-btn:nth-child(3) { animation: fade-up 0.4s ease 0.3s forwards; }
+.option-btn:nth-child(4) { animation: fade-up 0.4s ease 0.4s forwards; }
 
 .option-btn:hover {
   background: var(--sb3);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .option-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.98) translateY(0);
 }
 
 /* Result card */
 .hero-quiz-result {
-  animation: fade-in 0.6s ease;
+  animation: fade-in-scale 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   color: var(--text);
   text-align: center;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+
 .hero-quiz-result h1{
   font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fade-up 0.6s ease 0.2s forwards;
 }
+
 .hero-quiz-result p{
   font-size: 1rem;
+  opacity: 0;
+  animation: fade-up 0.6s ease 0.4s forwards;
 }
 
 .car-result-card {
@@ -86,6 +157,9 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fade-up 0.6s ease 0.6s forwards;
 }
 
 .car-image {
@@ -94,6 +168,9 @@
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: image-pop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s forwards;
 }
 
 .car-info h2 {
@@ -107,12 +184,121 @@
   color: var(--muted);
 }
 
-/* DESKTOP   ——————————————————————————— */
+/* Animations */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes image-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes speedometer-glow {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Car-themed confetti animations */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary);
+  opacity: 0;
+  animation: confetti-fall 5s ease-in forwards;
+}
+
+.confetti--shape-circle {
+  border-radius: 50%;
+}
+
+.confetti--shape-rectangle {
+  border-radius: 2px;
+}
+
+.confetti--color-primary {
+  background-color: var(--primary);
+}
+
+.confetti--color-accent {
+  background-color: var(--accent);
+}
+
+.confetti--color-secondary {
+  background-color: var(--secondary);
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .option-btn,
+  .question-title,
+  .hero-quiz-result h1,
+  .hero-quiz-result p,
+  .car-result-card,
+  .car-image {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  
+  .quiz-progress-bar {
+    transition: width 0.3s ease;
+  }
+  
+  .quiz-progress-bar::after {
+    animation: none;
+  }
+}
+
+/* DESKTOP   ——————————————————————————— */
 @media (min-width: 768px) {
   .hero-quiz {
     max-width: 700px;

@@ -126,12 +126,12 @@
   height: 18px;
 }
 
-.edit-button:hover {
+.edit-button svg:hover {
   color: var(--primary);
   /* Blue */
 }
 
-.delete-button:hover {
+.delete-button svg:hover {
   color: #dc2626;
   /* Red */
 }

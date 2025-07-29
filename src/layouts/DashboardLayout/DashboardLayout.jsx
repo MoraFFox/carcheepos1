@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"; // Ensure useState is imported
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Header from "../../components/Header/Header";
+import AuthenticatedTopBar from "../../components/AuthenticatedTopBar";
 import "./DashboardLayout.css";
 const DashboardLayout = ({ children }) => {
   
@@ -23,11 +23,8 @@ const DashboardLayout = ({ children }) => {
       {/* Pass state and toggle function to Sidebar */}
       <Sidebar isCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} />
       <div className='dashboard-main'>
-        {/* Pass state and toggle function to Header */}
-        <Header
-          isSidebarCollapsed={isSidebarCollapsed}
-          toggleSidebar={toggleSidebar}
-        />
+        {/* Top bar for signed-in users */}
+        <AuthenticatedTopBar />
         <main className='dashboard-content'>{children}</main>
         {/* Overlay for mobile when sidebar is open */}
         {!isSidebarCollapsed && (

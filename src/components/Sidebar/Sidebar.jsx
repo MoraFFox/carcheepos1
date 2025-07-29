@@ -16,10 +16,8 @@ import {
   ChevronDoubleRightIcon, // Expand icon
 } from "@heroicons/react/24/outline";
 // Placeholder for logo
-import LogoFull from "../../assets/logo-icon.svg"; // Changed to png, assuming this is the intended full logo for now
-import LogoIcon from "../../assets/logo-icon.svg"; // Assuming this is also the icon
-import textIcon from "../../assets/text-logo.svg";
-
+import LogoIcon from "../../assets/icons/LogoIcon"; // Changed to png, assuming this is the intended full logo for now
+import TextLogo from "../../assets/icons/TextLogo";
 // Accept isCollapsed and toggleSidebar props
 const Sidebar = ({ isCollapsed, toggleSidebar }) => {
   return (
@@ -29,25 +27,19 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
         {/* Logo and Toggle Button Container */}
         <button onClick={toggleSidebar} className='sidebar-logo-toggle-btn'>
           {/* Always render the main icon/logo part of the button */}
-          <img
-            src={isCollapsed ? LogoIcon : LogoFull}
-            alt={isCollapsed ? "Logo Icon" : "Full Logo"}
+          <LogoIcon
             className={`sidebar-logo-${isCollapsed ? "icon" : "full"}`}
           />
           {/* Text logo, only shown when not collapsed */}
           {!isCollapsed && (
-            <img
-              src={textIcon}
-              alt='Rivent Text Logo'
-              className='sidebar-logo-text-img'
-            />
+          <TextLogo/>
           )}
         </button>
       </div>
 
       <nav className='sidebar-nav sidebar-nav-main'>
         <NavLink
-          to='/'
+          to='/dashboard'
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           <HomeIcon />

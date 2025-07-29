@@ -157,6 +157,8 @@ svg {
   height: 15px;
   justify-self: center;
   align-self: center;
+  background: transparent;
+  color: var(--text);
 }
 
 
@@ -179,6 +181,8 @@ svg {
   --sb4:rgba(0, 255, 0, 0.1);
   --sb5:rgba(0, 255, 0, 0.05);
   --border: rgba(0, 0, 0, 0.1);
+  --divider: rgba(0, 0, 0, 0.11);
+  --muted: #6b7280;
 
 }
 
@@ -198,6 +202,8 @@ svg {
   --sb4:rgba(0, 255, 0, 0.1);
   --sb5:rgba(0, 255, 0, 0.05);
   --border: rgb(112, 112, 112);
+  --divider: rgba(112, 112, 112, 0.1);
+  --muted: #c6d5f3;
 }
 
 

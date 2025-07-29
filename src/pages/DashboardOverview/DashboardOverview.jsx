@@ -1,10 +1,9 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./DashboardOverview.css";
-import StatsCard from "../../components/StatsCard"; // Import the new StatsCard component
-import "../../components/StatsCard.css"; // Import its CSS
-import carsData from "../../db/db-cars.json";
+import StatsCard from "../../components/StatsCard/StatsCard"; // Import the new StatsCard component
+import "../../components/StatsCard/StatsCard.css"; // Import its CSS
 import { Link } from "react-router-dom"; // Import Link for navigation
 import {
   DocumentTextIcon,
@@ -12,15 +11,28 @@ import {
   CheckCircleIcon,
   ArrowRightIcon, // For the link button
 } from "@heroicons/react/24/outline"; // Import icons
-import SellerCarCard from "../../components/SellerCarCard"; // Import SellerCarCard for preview
-import "../../components/SellerCarCard.css"; // Import its CSS
+import SellerCarCard from "../../components/SellerCarCard/SellerCarCard"; // Import SellerCarCard for preview
+import "../../components/SellerCarCard/SellerCarCard.css"; // Import its CSS
+import { getUserCars } from "../../utils/api";
 
 function DashboardOverview() {
+  const [userCars, setUserCars] = useState([]);
   const [isSeller, setIsSeller] = useState(true); // Simulate seller status
   const simulatedUserId = "user123"; // Simulate a logged-in user ID
-
+// get user cars from db
+useEffect(() => {
+  try {
+const userCarsData = getUserCars(simulatedUserId).then((res) => {
+console.log(res);
+setUserCars(res);
+});
+} catch (error) {
+  console.log(error);
+}
+}, []);
+console.log(userCars);
   // Simulate fetching only the first few ads for the current user for preview
-  const userListingsPreview = carsData
+  const userListingsPreview = userCars
     // .filter((car) => car.sellerId === simulatedUserId) // sellerId might be nested: car.seller.id
     .filter((car) => car.seller && car.seller.id === simulatedUserId) // Adjusted for new schema
     .slice(0, 2); // Show max 2 cards in preview (was 3, corrected comment)
@@ -34,7 +46,7 @@ function DashboardOverview() {
         <div className='stats-cards-container'>
           <StatsCard
             label='Total Listings'
-            value={carsData.length}
+            value={userCars.length}
             icon={<DocumentTextIcon />}
           />
           <StatsCard

@@ -71,7 +71,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   border: 1px solid var(--sb1) !important;
   /* gray-200 */
-  background-color: var(--altBackground) !important;
+  background-color: rgb(177, 177, 177) !important;
 }
 
 .recharts-tooltip-label {

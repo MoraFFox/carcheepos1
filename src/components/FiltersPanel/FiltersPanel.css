@@ -208,7 +208,7 @@
   background-color: var(--altBackground);
   opacity: 1;
   border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
   transform: translateY(20px);
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
@@ -272,7 +272,7 @@
 
 .filter-group label {
   justify-content: flex-start;
-  gap: 1rem;
+  gap: .8rem;
   margin-bottom: 8px;
   padding:6px;
   font-weight: 500;
@@ -342,6 +342,8 @@
 
 .rc-slider {
   margin: 16px 0;
+  width: 80%;
+  justify-self: center;
 }
 
 .rc-slider-rail {
@@ -375,8 +377,8 @@
 
 /* Color Options */
 .filter-group-color .color-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
 }
@@ -404,8 +406,8 @@
 
 .color-dot {
   display: flex;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: 2px solid rgb(170, 170, 170);
 }
@@ -461,7 +463,6 @@
   font-size: 24px;
   width: 28px;
   height: 28px;
-  filter: brightness(0.8);
 }
 
 .transmission-icon-placeholder {
@@ -527,8 +528,8 @@
 
 .apply-filters-button {
   width: 50%;
-  background: #3498db;
-  color: #ffffff;
+  background: var(--primary);
+  color: var(--text);
   border: none;
   padding: 16px;
   border-radius: 12px;
@@ -541,7 +542,7 @@
 
 .apply-filters-button:active {
   transform: scale(0.98);
-  background: #2980b9;
+  background: var(--secondary);
 }
 
 /* Toggle Buttons */
@@ -559,7 +560,7 @@
   right: 20px;
   width: 56px;
   height: 56px;
-  background: #3498db;
+  background: var(--primary);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -570,13 +571,13 @@
   transition: all 0.2s ease;
   z-index: 999;
   box-shadow: 0 4px 16px rgba(52, 152, 219, 0.4);
-  color: #ffffff;
+  color: var(--text);
   animation: beat 4s ease infinite;
 }
 
 .toggle-filters-button-open:hover {
   transform: scale(0.98);
-  background: #2980b9;
+  background: var(--secondary);
 }
 
 

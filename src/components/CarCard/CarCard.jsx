@@ -11,9 +11,9 @@ import "./CarCard.css"; // Import the component-specific CSS
 import { getCarImage } from "../../utils/imageUtils"; // Import the shared utility
 
 // Import other necessary images (transmission, fuel icons)
-import automatic from "../../assets/A.svg";
-import manual from "../../assets/M.svg";
-import gastank from "../../assets/gas.svg";
+import Automatic from "../../assets/icons/A.jsx";
+import Manual from "../../assets/icons/M.jsx";
+import {Gas} from "../../assets/icons/index.jsx";
 import { SiFueler } from "react-icons/si";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { isidLiked, addLikedid, removeLikedid } from "../../utils/likedCars";
@@ -123,7 +123,7 @@ const CarCard = React.memo((car) => {
         <div className='car-card__header'>
           <div>
             <h3 className='car-card__headline'>
-              {manifacture} {model}
+              {manifacture.toUpperCase()} {model}
             </h3>
             {/* Display year if available, or remove type if it's redundant with model */}
             <p className='car-card__type'>{year}</p>
@@ -142,15 +142,11 @@ const CarCard = React.memo((car) => {
         {/* Specs overlay - Moved inside details */}
         <div className='car-card__specs-overlay'>
           <div className='car-card__spec-item'>
-            <img src={gastank} width='18px' alt='Fuel capacity' />
+            <Gas className='gas-icon'/>
             <span>{fuelcapacity ? `${fuelcapacity}L` : "N/A"}</span>
           </div>
           <div className='car-card__spec-item'>
-            <img
-              src={transmission === "Automatic" ? automatic : manual}
-              width='20px'
-              alt={transmission}
-            />
+            {transmission === "Automatic" ? (<Automatic className='transmission-icon'/>):( <Manual className='transmission-icon'/> )}
             <span>{transmission || "N/A"}</span>
           </div>
           <div className='car-card__spec-item'>

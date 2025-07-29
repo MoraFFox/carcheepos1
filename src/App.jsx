@@ -2,6 +2,7 @@
 
 import React, { Suspense, lazy } from "react"; // Added Suspense and lazy
 import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthRedirect, PublicRoute } from "./routes/AuthRoutes";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 import { FavoritesProvider } from "./context/FavoritesContext/FavoritesContext";
 import { CompareProvider } from "./context/CompareContext/CompareContext";
@@ -75,9 +76,11 @@ function App() {
                   <Route
                     path="/auth/login"
                     element={
-                      <UserAuth>
-                        <Login />
-                      </UserAuth>
+                      <AuthRedirect>
+                        <UserAuth>
+                          <Login />
+                        </UserAuth>
+                      </AuthRedirect>
                     }
                   />
                   <Route
@@ -107,18 +110,22 @@ function App() {
                   <Route
                     path="/auth/reset-password"
                     element={
-                      <UserAuth>
-                        <ResetPassword />
-                      </UserAuth>
+                      <PublicRoute>
+                        <UserAuth>
+                          <ResetPassword />
+                        </UserAuth>
+                      </PublicRoute>
                     }
                   />
-                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/" element={<AuthRedirect><LandingPage /></AuthRedirect>} />
                   <Route
                     path="/dashboard"
                     element={
-                      <DashboardLayout>
-                        <DashboardOverview />
-                      </DashboardLayout>
+                      <AuthRedirect>
+                        <DashboardLayout>
+                          <DashboardOverview />
+                        </DashboardLayout>
+                      </AuthRedirect>
                     }
                   />
                   <Route

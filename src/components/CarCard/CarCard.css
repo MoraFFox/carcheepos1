@@ -14,7 +14,6 @@
   min-height: 445px;
   max-width: 100%;
   box-shadow: var(--background) 0px 4px 8px 0px, var(--background) 0px 8px 24px 8px;
-  overflow: hidden;
   color: var(--text);
   transition: all 0.5s ease;
 }
@@ -24,54 +23,14 @@
   transform: scale(1.02);
   box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
 }
+.car-card:hover .car-card__image-section{
+  box-shadow: none;
+}
+
 
 
 
-.car-card--liked  {
-  flex-grow: 1;
-  flex-shrink: 1;
-  min-height: 455px;
-  flex-basis: 600px;
-}
 
-.car-card--liked:hover {
-  transform: translateY(-4px);
-  box-shadow: rgba(255, 60, 46, 0.4) -5px 5px, rgba(240, 91, 46, 0.3) -10px 10px, rgba(240, 91, 46, 0.2) -15px 15px, rgba(240, 91, 46, 0.1) -20px 20px, rgba(240, 91, 46, 0.05) -25px 25px;
-}
-
-.car-card--liked .car-card__spec-item {
-  background: #ff8688;
-  color: var(--background);
-  border-color: #ff00045b;
-}
-
-.car-card--liked .car-card__spec-item:hover {
-  cursor: pointer;
-  background: #ffac9d;
-}
-
-.car-card--liked .car-card__headline {
-  color: #ff8688;
-}
-
-.car-card--liked .car-card__btn {
-  background: #ffac9d;
-}
-
-.car-card--liked .car-card__btn:hover {
-  background: #ff8688;
-}
-
-.car-card--liked .car-card__price{
-  color: #ffa7a8;
-}
-.car-card--liked .car-card__image-section{
-  flex-grow: 1;
-  border-bottom: 2px solid #ff9a88 !important;
-}
-.car-card--liked .car-card__details{
- flex-grow: 0;
-}
 
 /* Element: Image Section */
 .car-card__image-section {
@@ -81,6 +40,8 @@
   height: 180px;
   background: var(--altBackground);
   border-bottom: 2px solid var(--accent);
+  box-shadow:  var(--altBackground) 10px -10px 5px 5px,var(--altBackground) -20px -10px 5px 5px;
+
 }
 
 /* Element: Image Box */
@@ -102,11 +63,10 @@
 
 
 
-.car-card__spec-item svg,
 .car-card__spec-item img {
   width: 16px;
   height: 16px;
-  opacity: 0.6;
+  color: var(--text);
 } 
 /* Tablet styles */
 .car-card__like-btn {
@@ -143,9 +103,7 @@
 .car-card__like-btn:hover {
   transform: scale(1.1);
 }
-.car-card--liked .car-card__footer{
-  border-top: 2px solid var(--altBackground) !important;
-}
+
 
 /* Car Details */
 .car-card__details {
@@ -155,6 +113,7 @@
   flex-direction: column;
   background-color: var(--background);
   padding: 12px;
+  border-radius: 12px;
 }
 
 .car-card__headline {
@@ -198,9 +157,9 @@
 }
 
 .car-card__spec-item svg {
-  width: 14px;
-  height: 14px;
-  opacity: 0.8;
+  width: 20px;
+  height: 20px;
+  color: var(--text);
 }
 
 /* Footer */
@@ -413,3 +372,60 @@
 .car-grid .car-card:nth-child(4) { animation-delay: 0.25s; }
 .car-grid .car-card:nth-child(5) { animation-delay: 0.3s; }
 .car-grid .car-card:nth-child(6) { animation-delay: 0.35s; }
+
+
+/* liked cars css  */
+.car-card--liked  {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-height: 455px;
+  flex-basis: 600px;
+}
+
+.car-card--liked:hover {
+  transform: translateY(-4px);
+  box-shadow: rgba(255, 60, 46, 0.4) -5px 5px, rgba(240, 91, 46, 0.3) -10px 10px, rgba(240, 91, 46, 0.2) -15px 15px, rgba(240, 91, 46, 0.1) -20px 20px, rgba(240, 91, 46, 0.05) -25px 25px;
+}
+.car-card--liked:hover .car-card__image-section{
+  box-shadow: none;
+}
+
+.car-card--liked .car-card__spec-item {
+  background: #ff8688;
+  color: var(--background);
+  border-color: #ff00045b;
+}
+
+.car-card--liked .car-card__spec-item:hover {
+  cursor: pointer;
+  background: #ffac9d;
+}
+
+.car-card--liked .car-card__headline {
+  color: #ff8688;
+}
+
+.car-card--liked .car-card__btn {
+  background: rgb(189, 49, 49);
+}
+
+.car-card--liked .car-card__btn:hover {
+  background: #ff8688;
+}
+
+.car-card--liked .car-card__price{
+  color: #ffa7a8;
+}
+.car-card--liked .car-card__image-section{
+  flex-grow: 1;
+  border-bottom: 2px solid #ff9a88 !important;
+}
+.car-card--liked .car-card__details{
+ flex-grow: 0;
+}
+
+.car-card--liked .car-card__footer{
+  border-top: 2px solid var(--altBackground) !important;
+}
+
+

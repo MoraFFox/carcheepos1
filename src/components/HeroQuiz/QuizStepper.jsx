@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import QuestionCard from "./QuestionCard";
 import CarResult from "./CarResult";
 import "./HeroQuiz.css";
@@ -82,6 +83,7 @@ const applyFilters = (cars, answers) => {
 const QuizStepper = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
+  const nodeRef = useRef(null);
 
   const handleAnswer = (value) => {
     const q = questions[step];
@@ -103,11 +105,47 @@ const QuizStepper = () => {
       // dynamic import keeps bundle small if user never reaches the end
       import("canvas-confetti").then((mod) => {
         const confetti = mod.default;
-        confetti({
-          particleCount: 120,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        
+        // Car-themed confetti with different shapes and colors
+        const carConfetti = () => {
+          const colors = ['#FF6B35', '#F7931E', '#FFD23F', '#06FFA5', '#118AB2', '#073B4C'];
+          const shapes = ['circle', 'square'];
+          
+          // Create multiple confetti bursts
+          for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+              confetti({
+                particleCount: 50,
+                angle: 60,
+                spread: 55,
+                startVelocity: 45,
+                decay: 0.9,
+                gravity: 1.5,
+                drift: -0.5,
+                ticks: 200,
+                origin: { x: 0.1, y: 0.7 },
+                colors: [colors[Math.floor(Math.random() * colors.length)]],
+                shapes: [shapes[Math.floor(Math.random() * shapes.length)]],
+              });
+              
+              confetti({
+                particleCount: 50,
+                angle: 120,
+                spread: 55,
+                startVelocity: 45,
+                decay: 0.9,
+                gravity: 1.5,
+                drift: 0.5,
+                ticks: 200,
+                origin: { x: 0.9, y: 0.7 },
+                colors: [colors[Math.floor(Math.random() * colors.length)]],
+                shapes: [shapes[Math.floor(Math.random() * shapes.length)]],
+              });
+            }, i * 300);
+          }
+        };
+        
+        carConfetti();
       }).catch(() => {});
     }
   }, [step]);
@@ -125,18 +163,35 @@ const QuizStepper = () => {
   const current = questions[step];
   const progress = ((step + 1) / questions.length) * 100;
 
+
+
   return (
     <section className="hero-quiz">
       <div className="quiz-progress">
         <div className="quiz-progress-bar" style={{ width: `${progress}%` }} />
       </div>
 
-      <QuestionCard
-        key={current.id}
-        question={current.question}
-        options={current.options}
-        onSelect={handleAnswer}
-      />
+      <SwitchTransition mode="out-in">
+        <CSSTransition
+          key={step}
+          nodeRef={nodeRef}
+          classNames={{
+            enter: 'question-enter',
+            enterActive: 'question-enter-active',
+            exit: 'question-exit',
+            exitActive: 'question-exit-active'
+          }}
+          timeout={600}
+          unmountOnExit
+        >
+          <QuestionCard
+            ref={nodeRef}
+            question={current.question}
+            options={current.options}
+            onSelect={handleAnswer}
+          />
+        </CSSTransition>
+      </SwitchTransition>
     </section>
   );
 };

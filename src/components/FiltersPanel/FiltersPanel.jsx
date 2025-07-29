@@ -10,9 +10,9 @@ import { MdFilterAltOff } from "react-icons/md";
 import { ColorPicker, Space } from "antd";
 
 // Import transmission icons
-import autoIcon from "../../assets/automatic-transmission.svg";
-import manualIcon from "../../assets/manual-transmission.svg";
 import { TiArrowSortedDown, TiArrowSortedUp, TiEquals } from "react-icons/ti"; // Added TiEquals for the grabber
+import SvgAutomaticTransmission from "../../assets/icons/AutomaticTransmission";
+import SvgManualTransmission from "../../assets/icons/ManualTransmission";
 // Consider adding an 'any' icon or using a placeholder/text
 
 // Add isExpanded and onToggleExpand to props
@@ -184,11 +184,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
                     checked={filters.transmission === "Automatic"}
                     onChange={handleChange}
                   />
-                  <img
-                    src={autoIcon}
-                    alt='Automatic'
-                    className='transmission-icon'
-                  />
+                  <SvgAutomaticTransmission className="transmission-icon"/>
                   <span className='transmission-name'>Auto</span>
                 </label>
                 {/* Manual Option */}
@@ -201,11 +197,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
                     checked={filters.transmission === "Manual"}
                     onChange={handleChange}
                   />
-                  <img
-                    src={manualIcon}
-                    alt='Manual'
-                    className='transmission-icon'
-                  />
+                  <SvgManualTransmission className="transmission-icon"/>
                   <span className='transmission-name'>Manual</span>
                 </label>
               </div>

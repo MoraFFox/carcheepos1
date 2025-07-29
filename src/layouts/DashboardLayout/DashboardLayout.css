@@ -41,7 +41,7 @@
 }
 
 .dashboard-content {
-  margin-top: 7vh;
+  /* margin-top: 7vh; */
   flex-grow: 1;
   width: 100%;
   /* Takes full width of .dashboard-main */
