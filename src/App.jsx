@@ -121,11 +121,11 @@ function App() {
                   <Route
                     path="/dashboard"
                     element={
-                      <AuthRedirect>
+                      // <AuthRedirect>
                         <DashboardLayout>
                           <DashboardOverview />
                         </DashboardLayout>
-                      </AuthRedirect>
+                      // </AuthRedirect>
                     }
                   />
                   <Route

@@ -20,6 +20,10 @@ import LogoIcon from "../../assets/icons/LogoIcon"; // Changed to png, assuming 
 import TextLogo from "../../assets/icons/TextLogo";
 // Accept isCollapsed and toggleSidebar props
 const Sidebar = ({ isCollapsed, toggleSidebar }) => {
+  const onLogout = () => {
+    
+    
+  }
   return (
     // Add 'collapsed' class based on state
     <aside className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
@@ -92,13 +96,13 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
           <Cog6ToothIcon />
           {!isCollapsed && <span>Settings</span>}
         </NavLink>
-        <NavLink
-          to='/logout'
+        <button
+          onClick={onLogout}
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           <ArrowLeftOnRectangleIcon />
           {!isCollapsed && <span>Logout</span>}
-        </NavLink>
+        </button>
       </nav>
     </aside>
   );
