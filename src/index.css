@@ -112,6 +112,7 @@ nav,
 section {
   display: block;
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -149,6 +150,11 @@ table {
 *::after {
   box-sizing: border-box;
 }
+
+*:focus {
+  outline: 1px solid var(--sb1);
+}
+
 svg {
   display: flex;
   justify-content: center;
@@ -170,16 +176,15 @@ svg {
   --primary: #5eb68e;
   --secondary: #95e0bd;
   --accent: #5ae3a4;
-  --divider: #e0e0e0;
   --muted: #6b7280;
   --bg: rgba(0, 255, 0, 0.103);
   --lightPrimary: rgba(0, 255, 0, 0.205);
   --darkPrimary: rgba(54, 122, 54, 0.51);
-  --sb1:rgba(0, 255, 0, 0.4);
-  --sb2:rgba(0, 255, 0, 0.3);
-  --sb3:rgba(0, 255, 0, 0.2);
-  --sb4:rgba(0, 255, 0, 0.1);
-  --sb5:rgba(0, 255, 0, 0.05);
+  --sb1: rgba(0, 255, 0, 0.4);
+  --sb2: rgba(0, 255, 0, 0.3);
+  --sb3: rgba(0, 255, 0, 0.2);
+  --sb4: rgba(0, 255, 0, 0.1);
+  --sb5: rgba(0, 255, 0, 0.05);
   --border: rgba(0, 0, 0, 0.1);
   --divider: rgba(0, 0, 0, 0.11);
   --muted: #6b7280;
@@ -196,11 +201,11 @@ svg {
   --bg: rgba(0, 255, 0, 0.103);
   --lightPrimary: rgba(0, 255, 0, 0.05);
   --darkPrimary: rgba(54, 122, 54, 0.51);
-  --sb1:rgba(0, 255, 0, 0.4);
-  --sb2:rgba(0, 255, 0, 0.3);
-  --sb3:rgba(0, 255, 0, 0.2);
-  --sb4:rgba(0, 255, 0, 0.1);
-  --sb5:rgba(0, 255, 0, 0.05);
+  --sb1: rgba(0, 255, 0, 0.4);
+  --sb2: rgba(0, 255, 0, 0.3);
+  --sb3: rgba(0, 255, 0, 0.2);
+  --sb4: rgba(0, 255, 0, 0.1);
+  --sb5: rgba(0, 255, 0, 0.05);
   --border: rgb(112, 112, 112);
   --divider: rgba(112, 112, 112, 0.1);
   --muted: #c6d5f3;
@@ -210,22 +215,25 @@ svg {
 
 
 body {
-  margin: 0; 
+  margin: 0;
   background-color: var(--background);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5; 
+  line-height: 1.5;
 
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
 }
+
 body::-webkit-scrollbar {
   width: 1px;
 }
+
 body::-webkit-scrollbar-track {
   background: var(--background);
 }
+
 body::-webkit-scrollbar-thumb {
   background: var(--accent);
 }
@@ -233,6 +241,3 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
-
-
-

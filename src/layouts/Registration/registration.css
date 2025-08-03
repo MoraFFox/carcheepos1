@@ -1,4 +1,4 @@
-.auth-container{
+.auth-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,6 @@
 .signup-logo {
     margin: auto 1rem;
     position: absolute;
-    top: -10%;
+    top: -0%;
     width: 200px;
 }
-

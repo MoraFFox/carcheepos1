@@ -274,23 +274,28 @@
   justify-content: flex-start;
   gap: .8rem;
   margin-bottom: 8px;
-  padding:6px;
+  padding: 6px;
   font-weight: 500;
   color: var(--text);
   background-color: var(--bg);
   font-size: 1rem;
-  height: 15px;
+  height: 40px;
   border-radius: 12px;
 }
-.filter-group label.header{
+
+.filter-group label.active {
+  background-color: var(--primary);
+}
+
+.filter-group label.header {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 16px;
   border-radius: 0;
   border: none;
-  background: none ;
-  width: auto ;
+  background: none;
+  width: auto;
   position: relative;
 
 }
@@ -316,10 +321,15 @@
   -webkit-appearance: none;
   transition: all 0.2s ease;
 }
-.filter-group select::picker-icon {
-  color: var(--text);
-  transition: 0.4s rotate;
+
+.filter-group select option {
+  background-color: var(--background);
+  border-radius: 12px;
 }
+
+
+
+
 
 
 
@@ -331,13 +341,13 @@
 }
 
 
-  
+
 
 
 /* Slider */
 .filter-group-slider {
   margin-bottom: 28px;
-  padding: 16px  20px 0 20px;
+  padding: 16px 20px 0 20px;
 }
 
 .rc-slider {
@@ -513,6 +523,8 @@
   width: 0;
   height: 0;
 }
+
+
 
 .car-type-icon {
   font-size: 28px;
@@ -803,13 +815,12 @@
 }
 
 
-.filter-group-label{
+.filter-group-label {
   font-size: 1rem !important;
-  
-}
-.filter-group-label:hover{
-  color: var(--text)!important;
-  background-color: transparent!important;
+
 }
 
-  
+.filter-group-label:hover {
+  color: var(--text) !important;
+  background-color: transparent !important;
+}

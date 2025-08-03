@@ -1,4 +1,16 @@
 /* Authenticated top bar styles */
+.menu-btn {
+  display: none;
+  /* Hidden by default */
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+    /* Shown on mobile */
+  }
+}
+
 .auth-header {
   position: sticky;
   top: 0;
@@ -17,6 +29,7 @@
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -32,17 +45,26 @@
 /* search */
 .auth-search {
   flex: 1;
+  max-width: 400px;
   position: relative;
 }
+
 .auth-search input {
   width: 100%;
   padding: 0.6rem 1rem;
   padding-right: 2.5rem;
   border: 1px solid var(--divider);
   border-radius: 8px;
-  background: var(--surface, var(--sb5));
+  background: var(--sb5);
   color: var(--text);
+
 }
+
+.auth-search input:focus {
+  outline-offset: 0px;
+  outline: 2px solid var(--sb1);
+}
+
 .auth-search button {
   position: absolute;
   top: 50%;
@@ -70,6 +92,7 @@
   position: relative;
   border-radius: 6px;
 }
+
 .icon-btn:hover {
   background: var(--sb5);
 }
@@ -86,12 +109,15 @@
   cursor: pointer;
   font-weight: 500;
 }
+
 .add-car-btn:hover {
   opacity: 0.9;
 }
+
 .btn-label {
   display: none;
 }
+
 @media (min-width: 768px) {
   .btn-label {
     display: inline;
@@ -99,6 +125,10 @@
 }
 
 /* badge */
+.notif-btn.active {
+  background: var(--sb5);
+}
+
 .badge {
   position: absolute;
   top: -2px;
@@ -127,9 +157,11 @@
   padding: 0.75rem 0;
   animation: fade 0.2s ease;
 }
+
 .notif-dropdown h4 {
   margin: 0 1rem 0.5rem;
 }
+
 .notif-item {
   padding: 0.6rem 1rem;
   border-bottom: 1px solid var(--divider);
@@ -138,9 +170,11 @@
   justify-content: space-between;
   font-size: 0.9rem;
 }
+
 .notif-item.unread {
   background: var(--lightPrimary);
 }
+
 .empty {
   text-align: center;
   color: var(--muted);
@@ -151,6 +185,7 @@
 .user-wrapper {
   position: relative;
 }
+
 .avatar-btn {
   width: 36px;
   height: 36px;
@@ -164,11 +199,13 @@
   cursor: pointer;
   overflow: hidden;
 }
+
 .avatar-btn img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .user-dropdown {
   position: absolute;
   top: 110%;
@@ -181,6 +218,7 @@
   animation: fade 0.2s ease;
   padding: 0.5rem 0;
 }
+
 .user-dropdown button {
   width: 100%;
   background: none;
@@ -193,6 +231,7 @@
   color: var(--text);
   font-size: 0.9rem;
 }
+
 .user-dropdown button:hover {
   background: var(--sb5);
 }
@@ -202,6 +241,7 @@
     opacity: 0;
     transform: translateY(-5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

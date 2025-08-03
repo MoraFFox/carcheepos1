@@ -21,9 +21,11 @@ import TextLogo from "../../assets/icons/TextLogo";
 // Accept isCollapsed and toggleSidebar props
 const Sidebar = ({ isCollapsed, toggleSidebar }) => {
   const onLogout = () => {
-    
-    
-  }
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("refreshToken");
+    window.location.href = "/auth/login";
+  };
   return (
     // Add 'collapsed' class based on state
     <aside className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
@@ -35,9 +37,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
             className={`sidebar-logo-${isCollapsed ? "icon" : "full"}`}
           />
           {/* Text logo, only shown when not collapsed */}
-          {!isCollapsed && (
-          <TextLogo/>
-          )}
+          {!isCollapsed && <TextLogo />}
         </button>
       </div>
 
@@ -81,12 +81,12 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
 
       <nav className='sidebar-nav sidebar-nav-bottom'>
         <NavLink
-          to="/notifications"
+          to='/notifications'
           className={({ isActive }) =>
             `sidebar-nav-link ${isActive ? "active" : ""}`
           }
         >
-          <BellIcon className="sidebar-nav-icon" />
+          <BellIcon className='sidebar-nav-icon' />
           {!isCollapsed && <span>Notifications</span>}
         </NavLink>
         <NavLink
@@ -96,10 +96,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
           <Cog6ToothIcon />
           {!isCollapsed && <span>Settings</span>}
         </NavLink>
-        <button
-          onClick={onLogout}
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
+        <button onClick={onLogout} className='sidebar-nav-button'>
           <ArrowLeftOnRectangleIcon />
           {!isCollapsed && <span>Logout</span>}
         </button>

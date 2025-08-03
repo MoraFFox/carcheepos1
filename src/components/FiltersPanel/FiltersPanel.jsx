@@ -122,11 +122,16 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             {/* Actual scrollable content */}
             {/* manifacture Filter */}
             <div className='filter-group'>
-              <label htmlFor='manifacture-filter' className='filter-group-label header'>manifacture</label>
+              <label
+                htmlFor='manifacture-filter'
+                className='filter-group-label header'
+              >
+                Manifacture
+              </label>
               <select
                 id='manifacture-filter'
                 name='manifacture'
-                value={filters.manifacture}
+                // value={filters.manifacture}
                 onChange={handleChange}
               >
                 <option value=''>All</option>
@@ -184,7 +189,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
                     checked={filters.transmission === "Automatic"}
                     onChange={handleChange}
                   />
-                  <SvgAutomaticTransmission className="transmission-icon"/>
+                  <SvgAutomaticTransmission className='transmission-icon' />
                   <span className='transmission-name'>Auto</span>
                 </label>
                 {/* Manual Option */}
@@ -197,7 +202,7 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
                     checked={filters.transmission === "Manual"}
                     onChange={handleChange}
                   />
-                  <SvgManualTransmission className="transmission-icon"/>
+                  <SvgManualTransmission className='transmission-icon' />
                   <span className='transmission-name'>Manual</span>
                 </label>
               </div>
@@ -340,7 +345,12 @@ const FiltersPanel = ({ onApplyFilters, isExpanded, onToggleExpand }) => {
             </div>
             {/* Seats Filter */}
             <div className='filter-group'>
-              <label htmlFor='capacity-filter' className='filter-group-label header'>Seats</label>
+              <label
+                htmlFor='capacity-filter'
+                className='filter-group-label header'
+              >
+                Seats
+              </label>
               <select
                 id='capacity-filter'
                 name='capacity'

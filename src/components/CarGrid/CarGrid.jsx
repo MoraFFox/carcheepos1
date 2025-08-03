@@ -17,7 +17,7 @@ const CarGrid = ({ filters = {} }) => {
         const data = await getAllCars();
         setCarsData(data || []); // Ensure we always have an array
       } catch (err) {
-        console.error('Error fetching cars:', err);
+        console.error("Error fetching cars:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -34,7 +34,6 @@ const CarGrid = ({ filters = {} }) => {
       </div>
     );
   }
-
 
   if (error) {
     return (
@@ -62,31 +61,36 @@ const CarGrid = ({ filters = {} }) => {
     maxYear,
   } = filters;
 
-
   const filteredCars = carsData.filter((car) => {
-    if (!car || typeof car !== 'object') {
+    if (!car || typeof car !== "object") {
       return false;
     }
 
-    const carPrice = parseFloat(car.cost || car.car_card?.price || 0);
-    const carYear = parseInt(car.year || 0, 10);
+    const carPrice = parseFloat(car.price || 0);
+    const carYear = parseInt(car.model || 0, 10);
 
-    if (minPrice !== undefined && !isNaN(carPrice) && carPrice < minPrice) return false;
-    if (maxPrice !== undefined && !isNaN(carPrice) && carPrice > maxPrice) return false;
+    if (minPrice !== undefined && !isNaN(carPrice) && carPrice < minPrice)
+      return false;
+    if (maxPrice !== undefined && !isNaN(carPrice) && carPrice > maxPrice)
+      return false;
     if (
-      filtermanifacture && car.manifacture &&
+      filtermanifacture &&
+      car.manifacture &&
       car.manifacture.toLowerCase() !== filtermanifacture.toLowerCase()
     )
       return false;
-    if (filterTransmission && car.car_card?.details?.transmission !== filterTransmission)
+    if (filterTransmission && car.transmission !== filterTransmission)
       return false;
     if (
-      filterColor && car.color?.exterior &&
-      car.color.exterior.toLowerCase() !== filterColor.toLowerCase()
+      filterColor &&
+      car.color &&
+      car.color.toLowerCase() !== filterColor.toLowerCase()
     )
       return false;
-    if (minYear !== undefined && !isNaN(carYear) && carYear < minYear) return false;
-    if (maxYear !== undefined && !isNaN(carYear) && carYear > maxYear) return false;
+    if (minYear !== undefined && !isNaN(carYear) && carYear < minYear)
+      return false;
+    if (maxYear !== undefined && !isNaN(carYear) && carYear > maxYear)
+      return false;
 
     return true;
   });
@@ -100,11 +104,9 @@ const CarGrid = ({ filters = {} }) => {
 
   return (
     <div className='car-grid'>
-      {filteredCars
-        .slice(0, 100)
-        .map(
-          (car) =>  (<CarCard key={car._id} car={car} />)
-        )}
+      {filteredCars.slice(0, 100).map((car) => (
+        <CarCard key={car._id} car={car} />
+      ))}
     </div>
   );
 };

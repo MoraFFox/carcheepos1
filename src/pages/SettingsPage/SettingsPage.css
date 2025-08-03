@@ -57,11 +57,14 @@
   padding: 14px 8px;
   border-radius: 8px;
   cursor: pointer;
+  gap: 1rem;
 }
+
 .settings-item:hover {
   background: var(--sb1);
 }
-.settings-item + .settings-item {
+
+.settings-item+.settings-item {
   border-top: 1px solid var(--divider);
 }
 
@@ -83,6 +86,7 @@
   height: 20px;
   color: var(--muted);
 }
+
 .settings-item-chevron.external {
   transform: rotate(-45deg);
 }
@@ -106,6 +110,7 @@
   color: var(--muted);
   font-size: 0.75rem;
 }
+
 .settings-logo {
   font-weight: 700;
   color: var(--primary);
@@ -124,6 +129,7 @@
   .settings-container {
     padding-top: 12px;
   }
+
   .settings-container::before {
     content: "";
     display: block;

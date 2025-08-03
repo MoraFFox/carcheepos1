@@ -2,7 +2,7 @@
 
 import React, { Suspense, lazy } from "react"; // Added Suspense and lazy
 import { Routes, Route, Navigate } from "react-router-dom";
-import { AuthRedirect, PublicRoute } from "./routes/AuthRoutes";
+import { AuthRedirect, PublicRoute, PrivateRoute } from "./routes/AuthRoutes";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 import { FavoritesProvider } from "./context/FavoritesContext/FavoritesContext";
 import { CompareProvider } from "./context/CompareContext/CompareContext";
@@ -66,7 +66,7 @@ function App() {
             <NotificationsProvider>
               <Suspense
                 fallback={
-                  <div className="main-fallback-loading">Loading...</div>
+                  <div className='main-fallback-loading'>Loading...</div>
                 }
               >
                 {" "}
@@ -74,7 +74,7 @@ function App() {
                 <Routes>
                   {/* Home page (public) */}
                   <Route
-                    path="/auth/login"
+                    path='/auth/login'
                     element={
                       <AuthRedirect>
                         <UserAuth>
@@ -84,7 +84,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/auth/signup"
+                    path='/auth/signup'
                     element={
                       <UserAuth>
                         <Signup />
@@ -92,23 +92,27 @@ function App() {
                     }
                   />
                   <Route
-                    path="/auth/request-reset-password"
+                    path='/auth/request-reset-password'
                     element={
-                      <UserAuth>
-                        <RequestResetPassword />
-                      </UserAuth>
+                      <PublicRoute>
+                        <UserAuth>
+                          <RequestResetPassword />
+                        </UserAuth>
+                      </PublicRoute>
                     }
                   />
                   <Route
-                    path="/auth/verify-reset-password"
+                    path='/auth/verify-reset-password'
                     element={
-                      <UserAuth>
-                        <VerifyResetPassword />
-                      </UserAuth>
+                      <PublicRoute>
+                        <UserAuth>
+                          <VerifyResetPassword />
+                        </UserAuth>
+                      </PublicRoute>
                     }
                   />
                   <Route
-                    path="/auth/reset-password"
+                    path='/auth/reset-password'
                     element={
                       <PublicRoute>
                         <UserAuth>
@@ -117,135 +121,168 @@ function App() {
                       </PublicRoute>
                     }
                   />
-                  <Route path="/" element={<AuthRedirect><LandingPage /></AuthRedirect>} />
                   <Route
-                    path="/dashboard"
+                    path='/'
                     element={
-                      // <AuthRedirect>
+                      <AuthRedirect>
+                        <LandingPage />
+                      </AuthRedirect>
+                    }
+                  />
+                  <Route
+                    path='/dashboard'
+                    element={
+                      <PrivateRoute>
                         <DashboardLayout>
                           <DashboardOverview />
                         </DashboardLayout>
-                      // </AuthRedirect>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/cars"
+                    path='/cars'
                     element={
-                      <DashboardLayout>
-                        <CarListPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <CarListPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/post-ad" // Changed from /post to match sidebar link
+                    path='/post-ad' // Changed from /post to match sidebar link
                     element={
-                      <DashboardLayout>
-                        {/* Use the imported PostCarPage component */}
-                        <PostCarPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          {/* Use the imported PostCarPage component */}
+                          <PostCarPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/car/:id" // Keep the car detail route
+                    path='/car/:id' // Keep the car detail route
                     element={
-                      <DashboardLayout>
-                        <CarDetailPage />
-                      </DashboardLayout>
+                      <PublicRoute>
+                        <DashboardLayout>
+                          <CarDetailPage />
+                        </DashboardLayout>
+                      </PublicRoute>
                     }
                   />
                   {/* Add route for My Ads page */}
                   <Route
-                    path="/my-ads"
+                    path='/my-ads'
                     element={
-                      <DashboardLayout>
-                        <MyActivityPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <MyActivityPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/analytics"
+                    path='/analytics'
                     element={
-                      <DashboardLayout>
-                        <AnalyticsPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <AnalyticsPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/settings"
+                    path='/settings'
                     element={
-                      <DashboardLayout>
-                        <SettingsLayout>
-                          <SettingsPage />
-                        </SettingsLayout>
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <SettingsLayout>
+                            <SettingsPage />
+                          </SettingsLayout>
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/profile"
+                    path='/profile'
                     element={
-                      <DashboardLayout>
-                        <SettingsLayout>
-                          <ProfilePage />
-                        </SettingsLayout>
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <SettingsLayout>
+                            <ProfilePage />
+                          </SettingsLayout>
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/account"
+                    path='/account'
                     element={
-                      <DashboardLayout>
-                        <SettingsLayout>
-                          <AccountSettingsPage />
-                        </SettingsLayout>
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <SettingsLayout>
+                            <AccountSettingsPage />
+                          </SettingsLayout>
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/settings/notifications"
+                    path='/settings/notifications'
                     element={
-                      <DashboardLayout>
-                        <SettingsLayout>
-                          <NotificationSettingsPage />
-                        </SettingsLayout>
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <SettingsLayout>
+                            <NotificationSettingsPage />
+                          </SettingsLayout>
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/settings/appearance"
+                    path='/settings/appearance'
                     element={
-                      <DashboardLayout>
-                        <SettingsLayout>
-                          <AppearanceSettingsPage />
-                        </SettingsLayout>
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <SettingsLayout>
+                            <AppearanceSettingsPage />
+                          </SettingsLayout>
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/bookings"
+                    path='/bookings'
                     element={
-                      <DashboardLayout>
-                        <BookingsPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <BookingsPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/favorites"
+                    path='/favorites'
                     element={
-                      <DashboardLayout>
-                        <FavoritesPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <FavoritesPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   <Route
-                    path="/notifications"
+                    path='/notifications'
                     element={
-                      <DashboardLayout>
-                        <NotificationsPage />
-                      </DashboardLayout>
+                      <PrivateRoute>
+                        <DashboardLayout>
+                          <NotificationsPage />
+                        </DashboardLayout>
+                      </PrivateRoute>
                     }
                   />
                   {/* Redirect any unknown paths to the dashboard overview */}
-                  <Route path="*" element={<Navigate to="/" replace />} />
+                  <Route path='*' element={<Navigate to='/' replace />} />
                 </Routes>
               </Suspense>
             </NotificationsProvider>

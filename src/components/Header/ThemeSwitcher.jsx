@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from "react";
 import { Palette, ChevronDown } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext/ThemeContext";
@@ -39,17 +41,19 @@ const ThemeSwitcher = ({ onThemeChange }) => {
   };
   const [open, setOpen] = useState(false);
   return (
-    <div className="theme-switcher">
-      <button className="theme-button" onClick={() => setOpen(!open)}>
-        <Palette className="theme-icon" />
-        <ChevronDown className="dropdown-icon" />
+    <div className='theme-switcher'>
+      <button className='theme-button' onClick={() => setOpen(!open)}>
+        <Palette className='theme-icon' />
+        <ChevronDown className='dropdown-icon' />
       </button>
       {open && (
-        <div className="theme-dropdown">
+        <div className='theme-dropdown'>
           {themeOptions.map(({ value, label }) => (
             <button
               key={value}
-              onClick={() => {handleThemeChange(value), console.log(value)}}
+              onClick={() => {
+                handleThemeChange(value), console.log(value);
+              }}
               className={currentTheme[theme.primary] === value ? "active" : ""}
             >
               {label}

@@ -36,12 +36,11 @@ const LoginPage = () => {
       const userRole = response.data;
       const userData = response.data;
       const refresh_token = response.data.refreshToken;
-      console.log(response);
+
       login(accessToken, refresh_token, userData);
       setAuth({ accessToken, userRole, userData: formData });
-      console.log(userData);
 
-      navigate("/");
+      navigate("/cars");
     } catch (err) {
       if (!err?.response) {
         setError("No response from server");
@@ -58,41 +57,41 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-page">
-      <form onSubmit={handleSubmit} className="login-form">
+    <div className='login-page'>
+      <form onSubmit={handleSubmit} className='login-form'>
         <h2>Login</h2>
-        {error && <div className="error-message">{error}</div>}
-        <div className="form-group">
-          <label className="form-label" htmlFor="email">
+        {error && <div className='error-message'>{error}</div>}
+        <div className='form-group'>
+          <label className='form-label' htmlFor='email'>
             Email:
           </label>
           <input
-            type="email"
-            name="email"
-            id="email"
+            type='email'
+            name='email'
+            id='email'
             value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="password">
+        <div className='form-group'>
+          <label className='form-label' htmlFor='password'>
             Password:
           </label>
           <input
-            type="password"
-            name="password"
-            id="password"
+            type='password'
+            name='password'
+            id='password'
             value={formData.password}
             onChange={handleChange}
             required
           />
         </div>
-        <button type="submit" className="form-button" disabled={loading}>
+        <button type='submit' className='form-button' disabled={loading}>
           Login
         </button>
-        <p className="login-link">
-          Don't have an account? <NavLink to="/auth/signup">Sign Up</NavLink>
+        <p className='login-link'>
+          Don't have an account? <NavLink to='/auth/signup'>Sign Up</NavLink>
         </p>
       </form>
     </div>

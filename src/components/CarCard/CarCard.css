@@ -13,7 +13,7 @@
   margin: 0px;
   min-height: 445px;
   max-width: 100%;
-  box-shadow: var(--background) 0px 4px 8px 0px, var(--background) 0px 8px 24px 8px;
+  /* box-shadow: var(--background) 0px 4px 8px 0px, var(--background) 0px 8px 24px 8px; */
   color: var(--text);
   transition: all 0.5s ease;
 }
@@ -23,7 +23,8 @@
   transform: scale(1.02);
   box-shadow: var(--sb1) -5px 5px, var(--sb2) -10px 10px, var(--sb3) -15px 15px, var(--sb4) -20px 20px, var(--sb5) -25px 25px;
 }
-.car-card:hover .car-card__image-section{
+
+.car-card:hover .car-card__image-section {
   box-shadow: none;
 }
 
@@ -40,7 +41,7 @@
   height: 180px;
   background: var(--altBackground);
   border-bottom: 2px solid var(--accent);
-  box-shadow:  var(--altBackground) 10px -10px 5px 5px,var(--altBackground) -20px -10px 5px 5px;
+  box-shadow: var(--altBackground) 10px -10px 5px 5px, var(--altBackground) -20px -10px 5px 5px;
 
 }
 
@@ -67,7 +68,8 @@
   width: 16px;
   height: 16px;
   color: var(--text);
-} 
+}
+
 /* Tablet styles */
 .car-card__like-btn {
   position: absolute;
@@ -78,7 +80,8 @@
   padding: 8px;
   cursor: pointer;
 }
-.car-card__like-btn:focus{
+
+.car-card__like-btn:focus {
   outline: none;
 }
 
@@ -140,9 +143,10 @@
 .car-card__spec-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   padding: 4px 10px;
-  background: var(--sb1);
+  background: var(--sb4);
   border-radius: 10px;
   font-size: 0.8rem;
   color: var(--text);
@@ -153,7 +157,7 @@
 .car-card__spec-item:hover {
   cursor: pointer;
   background: var(--accent);
- 
+
 }
 
 .car-card__spec-item svg {
@@ -191,7 +195,7 @@
   font-size: 0.85rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-weight:  600;
+  font-weight: 600;
   transition: all 0.4s ease;
 }
 
@@ -342,22 +346,24 @@
 
 
 
-.car-grid .car-card--featured {
-  grid-column: span 2;
-  grid-row: span 1;
+  .car-grid .car-card--featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
 }
-}
-/* Stagger card animations */   
+
+/* Stagger card animations */
 .car-grid .car-card {
-  animation:  cardAppear 0.5s ease forwards;
+  animation: cardAppear 0.5s ease forwards;
   opacity: 0;
 }
 
 @keyframes cardAppear {
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
+
 @keyframes hover {
   to {
     transform: translateY(-2px);
@@ -366,16 +372,33 @@
 }
 
 
-.car-grid .car-card:nth-child(1) { animation-delay: 0.1s; }
-.car-grid .car-card:nth-child(2) { animation-delay: 0.15s; }
-.car-grid .car-card:nth-child(3) { animation-delay: 0.2s; }
-.car-grid .car-card:nth-child(4) { animation-delay: 0.25s; }
-.car-grid .car-card:nth-child(5) { animation-delay: 0.3s; }
-.car-grid .car-card:nth-child(6) { animation-delay: 0.35s; }
+.car-grid .car-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.car-grid .car-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.car-grid .car-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.car-grid .car-card:nth-child(4) {
+  animation-delay: 0.25s;
+}
+
+.car-grid .car-card:nth-child(5) {
+  animation-delay: 0.3s;
+}
+
+.car-grid .car-card:nth-child(6) {
+  animation-delay: 0.35s;
+}
 
 
 /* liked cars css  */
-.car-card--liked  {
+.car-card--liked {
   flex-grow: 1;
   flex-shrink: 1;
   min-height: 455px;
@@ -386,19 +409,20 @@
   transform: translateY(-4px);
   box-shadow: rgba(255, 60, 46, 0.4) -5px 5px, rgba(240, 91, 46, 0.3) -10px 10px, rgba(240, 91, 46, 0.2) -15px 15px, rgba(240, 91, 46, 0.1) -20px 20px, rgba(240, 91, 46, 0.05) -25px 25px;
 }
-.car-card--liked:hover .car-card__image-section{
+
+.car-card--liked:hover .car-card__image-section {
   box-shadow: none;
 }
 
 .car-card--liked .car-card__spec-item {
-  background: #ff8688;
-  color: var(--background);
+  background: #ff868842;
+  color: var(--text);
   border-color: #ff00045b;
 }
 
 .car-card--liked .car-card__spec-item:hover {
   cursor: pointer;
-  background: #ffac9d;
+  background: #ff654988;
 }
 
 .car-card--liked .car-card__headline {
@@ -413,19 +437,19 @@
   background: #ff8688;
 }
 
-.car-card--liked .car-card__price{
+.car-card--liked .car-card__price {
   color: #ffa7a8;
 }
-.car-card--liked .car-card__image-section{
+
+.car-card--liked .car-card__image-section {
   flex-grow: 1;
   border-bottom: 2px solid #ff9a88 !important;
 }
-.car-card--liked .car-card__details{
- flex-grow: 0;
+
+.car-card--liked .car-card__details {
+  flex-grow: 0;
 }
 
-.car-card--liked .car-card__footer{
+.car-card--liked .car-card__footer {
   border-top: 2px solid var(--altBackground) !important;
 }
-
-

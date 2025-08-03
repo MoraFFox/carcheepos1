@@ -19,6 +19,7 @@ const CarListPage = () => {
   const toggleFiltersExpand = () => {
     setIsFiltersExpanded(!isFiltersExpanded);
   };
+  console.log(activeFilters);
 
   return (
     // Add class based on expanded state

@@ -2,7 +2,8 @@
   position: relative;
   display: flex;
   /* Changed to flex for simpler main axis control */
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   background-color: var(--altBackground);
   /* Light background for the whole layout */
 }
@@ -12,17 +13,17 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
   /* width is effectively 100% of its container due to flex-grow */
   position: relative;
-  margin-left: 260px;
+  margin-left: 12vw;
+  width: 88vw;
   /* Default margin for expanded sidebar */
   transition: margin-left 0.3s ease-in-out;
 }
 
 .sidebar-collapsed .dashboard-main {
-  margin-left: 80px;
+  margin-left: 4vw;
+  width: 96vw;
   /* Margin for collapsed sidebar */
 }
 

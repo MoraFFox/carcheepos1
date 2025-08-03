@@ -17,6 +17,7 @@ const colorTheme = {
     sb3: "rgba(0, 177, 59, 0.2)",
     sb4: "rgba(0, 177, 59, 0.1)",
     sb5: "rgba(0, 177, 59, 0.05)",
+    bg: "rgba(0, 255, 0, 0.103)",
   },
   blueTheme: {
     mode: "dark",
@@ -33,6 +34,7 @@ const colorTheme = {
     sb3: "rgba(0, 101, 184, 0.2)",
     sb4: "rgba(0, 101, 184, 0.1)",
     sb5: "rgba(0, 101, 184, 0.05)",
+    bg: "rgba(0, 101, 184, 0.103)",
   },
   redTheme: {
     mode: "dark",
@@ -49,6 +51,7 @@ const colorTheme = {
     sb3: "rgba(200, 0, 50, 0.2)",
     sb4: "rgba(200, 0, 50, 0.1)",
     sb5: "rgba(200, 0, 50, 0.05)",
+    bg: "rgba(255, 0, 0, 0.103)",
   },
   greenTheme: {
     mode: "dark",
@@ -65,6 +68,7 @@ const colorTheme = {
     sb3: "rgba(0, 177, 59, 0.2)",
     sb4: "rgba(0, 177, 59, 0.1)",
     sb5: "rgba(0, 177, 59, 0.05)",
+    bg: "rgba(0, 255, 0, 0.103)",
   },
   purpleTheme: {
     mode: "dark",
@@ -81,6 +85,7 @@ const colorTheme = {
     sb3: "rgba(131,92,182,0.2)",
     sb4: "rgba(131,92,182,0.1)",
     sb5: "rgba(131,92,182,0.05)",
+    bg: "rgba(131, 92, 182, 0.103)",
   },
 };
 
@@ -139,7 +144,6 @@ export const ThemeProvider = ({ children }) => {
     document.documentElement.style.setProperty("--sb3", theme.sb3);
     document.documentElement.style.setProperty("--sb4", theme.sb4);
     document.documentElement.style.setProperty("--sb5", theme.sb5);
-    document.documentElement.style.setProperty("--sb6", theme.sb6);
     localStorage.setItem("theme", JSON.stringify(theme));
     console.log(theme);
   }, [theme]);

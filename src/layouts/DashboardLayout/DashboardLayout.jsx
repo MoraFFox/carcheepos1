@@ -2,10 +2,9 @@
 
 import React, { useState } from "react"; // Ensure useState is imported
 import Sidebar from "../../components/Sidebar/Sidebar";
-import AuthenticatedTopBar from "../../components/AuthenticatedTopBar";
+import AuthenticatedTopBar from "../../components/AuthenticatedTopBar/dashboardHeader";
 import "./DashboardLayout.css";
 const DashboardLayout = ({ children }) => {
-  
   // Re-add state for sidebar collapse status
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true); // Changed default to true
 
@@ -24,7 +23,7 @@ const DashboardLayout = ({ children }) => {
       <Sidebar isCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} />
       <div className='dashboard-main'>
         {/* Top bar for signed-in users */}
-        <AuthenticatedTopBar />
+        <AuthenticatedTopBar toggleSidebar={toggleSidebar} />
         <main className='dashboard-content'>{children}</main>
         {/* Overlay for mobile when sidebar is open */}
         {!isSidebarCollapsed && (

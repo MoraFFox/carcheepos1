@@ -16,10 +16,16 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function ListItem({ icon: Icon, label, onClick, external }) {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
   return (
-    <li className="settings-item" onClick={onClick}>
-      <div className="settings-item-left">
-        <Icon className="settings-item-icon" />
+    <li className='settings-item' onClick={handleLogout}>
+      <div className='settings-item-left'>
+        <Icon className='settings-item-icon' />
         <span>{label}</span>
       </div>
       <ChevronRightIcon
@@ -38,18 +44,18 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="settings-container">
+    <div className='settings-container'>
       {/* Profile */}
-      <section className="settings-profile-card">
+      <section className='settings-profile-card'>
         <img
           src={`https://i.pravatar.cc/150?u=static`}
-          alt="Profile"
-          className="settings-avatar"
+          alt='Profile'
+          className='settings-avatar'
         />
-        <div className="settings-profile-info">
+        <div className='settings-profile-info'>
           <h3>John Smith</h3>
           <button
-            className="edit-profile-btn"
+            className='edit-profile-btn'
             onClick={() => navigate("/profile")}
           >
             Edit Profile
@@ -58,60 +64,60 @@ export default function SettingsPage() {
       </section>
 
       {/* Account settings */}
-      <ul className="settings-list">
+      <ul className='settings-list'>
         <ListItem
           icon={UserIcon}
-          label="Account Settings"
+          label='Account Settings'
           onClick={() => navigate("/account")}
         />
       </ul>
 
       {/* Preferences header */}
-      <h4 className="settings-section-title">Preferences</h4>
-      <ul className="settings-list">
+      <h4 className='settings-section-title'>Preferences</h4>
+      <ul className='settings-list'>
         <ListItem
           icon={BellIcon}
-          label="Notifications"
+          label='Notifications'
           onClick={() => navigate("/settings/notifications")}
         />
         <ListItem
           icon={PaintBrushIcon}
-          label="Appearance"
+          label='Appearance'
           onClick={() => navigate("/settings/appearance")}
         />
       </ul>
 
       {/* Resources header */}
-      <h4 className="settings-section-title">Resources</h4>
-      <ul className="settings-list">
+      <h4 className='settings-section-title'>Resources</h4>
+      <ul className='settings-list'>
         <ListItem
           icon={LifebuoyIcon}
-          label="Contact Support"
+          label='Contact Support'
           external
           onClick={() => window.open("mailto:support@example.com", "_blank")}
         />
         <ListItem
           icon={AtSymbolIcon}
-          label="Follow us"
+          label='Follow us'
           external
           onClick={() => window.open("https://twitter.com/company", "_blank")}
         />
       </ul>
 
       {/* Sign out */}
-      <ul className="settings-list">
+      <ul className='settings-list'>
         <ListItem
           icon={ArrowLeftOnRectangleIcon}
-          label="Sign Out"
+          label='Sign Out'
           onClick={handleLogout}
         />
       </ul>
 
       {/* Footer */}
-      <footer className="settings-footer">
-        <div className="settings-logo">CarCHeepo</div>
-        <small className="settings-version">Version 0.1.0</small>
-        <button className="settings-terms" onClick={() => navigate("/terms")}>
+      <footer className='settings-footer'>
+        <div className='settings-logo'>CarCHeepo</div>
+        <small className='settings-version'>Version 0.1.0</small>
+        <button className='settings-terms' onClick={() => navigate("/terms")}>
           Terms & Privacy
         </button>
       </footer>

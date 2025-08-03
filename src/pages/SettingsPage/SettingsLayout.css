@@ -2,7 +2,7 @@
   display: flex;
   gap: 32px;
   max-width: 1260px;
-  margin: 0 5rem;
+  margin: 0 auto;
   padding: 40px 20px;
 }
 
@@ -11,8 +11,9 @@
   width: 220px;
   padding: 1rem;
   gap: 1rem;
-  border-right: 1px solid var(--sb1);
+  border-right: 1px solid var(--divider);
 }
+
 .settings-side-list {
   flex-grow: 1;
   display: flex;
@@ -22,6 +23,7 @@
   padding: 0;
   margin: 0;
 }
+
 .settings-side-item {
   display: flex;
   align-items: center;
@@ -33,17 +35,21 @@
   color: var(--text);
   transition: background 0.15s;
 }
+
 .settings-side-item:hover {
   background: var(--sb2);
 }
+
 .settings-side-item.active {
   background: var(--primary);
   color: #fff;
 }
+
 .settings-side-icon {
   width: 20px;
   height: 20px;
 }
+
 .settings-side-content {
   flex: 1;
   min-width: 0;
@@ -55,6 +61,7 @@
     flex-direction: column;
     padding: var(--settings-padding);
   }
+
   .settings-side-nav {
     display: none;
   }
