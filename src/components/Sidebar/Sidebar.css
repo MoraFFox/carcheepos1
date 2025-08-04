@@ -68,6 +68,7 @@
   border-bottom: 1px solid var(--divider);
   flex-basis: 7dvh;
   min-height: 7dvh;
+  width: 100%;
   overflow: hidden;
   box-sizing: border-box;
   transition: padding 0.3s ease-in-out;
@@ -193,6 +194,7 @@
   flex-direction: column;
   align-items: start;
   overflow: hidden;
+  width: 100%;
   flex-grow: 1;
   padding: 15px 0;
   scrollbar-width: thin;
@@ -512,27 +514,6 @@
   transform: translateX(-20px);
 }
 
-/* Specific adjustments for the header within the sidebar when it's collapsed (off-screen) 
-   or not collapsed (on-screen). These might differ from the old desktop-only collapsed state. */
-.sidebar-header {
-  /* Default state (sidebar open) */
-  padding: 15px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Or space-between if you have a close icon */
-  /* Other existing styles like border-bottom, flex-basis, etc., remain */
-}
-
-.sidebar.collapsed .sidebar-header {
-  /* When sidebar is off-screen, header styles might not need to change drastically 
-     unless specific elements within it need to be hidden/altered. */
-  /* For example, if the toggle button itself is part of .sidebar-header and needs to be hidden */
-  padding: 15px 10px;
-  /* Keep padding consistent or adjust as needed */
-  justify-content: center;
-  /* Or initial alignment */
-}
 
 /* Toggle button styling - ensure it's correctly displayed or hidden 
    based on whether it's part of the sidebar or a separate component (e.g., in Header.jsx) */

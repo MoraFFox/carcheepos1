@@ -54,13 +54,13 @@ const AuthenticatedTopBar = ({ user, toggleSidebar }) => {
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder='Search cars...'
           />
-          <button type='submit'>
+          <div className='search-icon'>
             <FiSearch />
-          </button>
+          </div>
         </form>
 
         <div className='auth-actions'>
-          <button className='add-car-btn' onClick={() => navigate("/add-car")}>
+          <button className='add-car-btn' onClick={() => navigate("/post-ad")}>
             <FiPlus /> <span className='btn-label'>Add Car</span>
           </button>
 

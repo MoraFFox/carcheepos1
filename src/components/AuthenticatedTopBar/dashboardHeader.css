@@ -44,6 +44,10 @@
 
 /* search */
 .auth-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   flex: 1;
   max-width: 400px;
   position: relative;
@@ -65,7 +69,7 @@
   outline: 2px solid var(--sb1);
 }
 
-.auth-search button {
+.auth-search .search-icon {
   position: absolute;
   top: 50%;
   right: 0.5rem;
@@ -73,7 +77,6 @@
   background: none;
   border: none;
   color: var(--muted);
-  cursor: pointer;
 }
 
 /* actions */
