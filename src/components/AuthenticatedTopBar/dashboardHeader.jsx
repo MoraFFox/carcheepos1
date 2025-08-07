@@ -15,23 +15,29 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext/ThemeContext";
 import "./dashboardHeader.css";
+import { useNotifications } from "../../context/NotificationsContext/NotificationsContext";
+import {
+  isToday,
+  isYesterday,
+  differenceInCalendarDays,
+  formatDistanceToNow,
+} from "date-fns";
 
 import { FiMenu } from "react-icons/fi";
 
 const AuthenticatedTopBar = ({ user, toggleSidebar }) => {
   const navigate = useNavigate();
   const { themeName, toggleTheme } = useTheme();
+  const { markAsRead, notifications, unreadCount } = useNotifications();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [showNotif, setShowNotif] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
   // mock notifications – replace later
-  const notifications = [
-    { id: 1, text: "New message from John", read: false, time: "2h" },
-    { id: 2, text: "Your listing was approved", read: true, time: "1d" },
-  ];
-  const unread = notifications.filter((n) => !n.read).length;
+
+  const unread = unreadCount;
+  console.log(notifications);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -78,9 +84,25 @@ const AuthenticatedTopBar = ({ user, toggleSidebar }) => {
                     <div
                       key={n.id}
                       className={`notif-item ${!n.read ? "unread" : ""}`}
+                      onClick={() => {
+                        markAsRead(n.id);
+                      }}
                     >
-                      <p>{n.text}</p>
-                      <span>{n.time}</span>
+                      <p>{n.message}</p>
+                      <span className='notif-times'>
+                        {isToday(n.timestamp)
+                          ? "Today"
+                          : isYesterday(n.timestamp)
+                          ? "Yesterday"
+                          : differenceInCalendarDays(
+                              new Date(),
+                              new Date(n.timestamp)
+                            ) <= 7
+                          ? formatDistanceToNow(n.timestamp)
+                          : formatDistanceToNow(n.timestamp, {
+                              addSuffix: true,
+                            })}
+                      </span>
                     </div>
                   ))
                 ) : (

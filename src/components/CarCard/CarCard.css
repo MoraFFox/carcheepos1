@@ -156,7 +156,7 @@
 
 .car-card__spec-item:hover {
   cursor: pointer;
-  background: var(--accent);
+  background: var(--sb1);
 
 }
 
@@ -187,7 +187,7 @@
 
 
 .car-card__btn {
-  background: var(--accent);
+  background: var(--sb1);
   color: white;
   border: none;
   padding: 6px 14px;
@@ -200,7 +200,7 @@
 }
 
 .car-card__btn:hover {
-  background: var(--secondary);
+  background: var(--accent);
   border-radius: 18px;
 }
 
@@ -332,10 +332,6 @@
 
 
 
-.car-card__btn:hover {
-  background-color: var(--secondary);
-  /* Darker shade on hover */
-}
 
 /* Modifier: Liked Card - Mobile (default is vertical stack) */
 

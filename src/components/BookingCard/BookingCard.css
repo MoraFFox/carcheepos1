@@ -22,11 +22,11 @@
 /* Status Badge */
 .booking-card__status {
   position: absolute;
-  top: 12px;
+  top: 30px;
   right: 12px;
   padding: 6px 12px;
   border-radius: 20px;
-  color: var(--text);
+  color: white;
   font-size: 0.85rem;
   font-weight: 500;
   z-index: 1;
@@ -94,6 +94,7 @@
   width: 16px;
   height: 16px;
   opacity: 0.8;
+  color: var(--background);
 }
 
 /* Contact Section */
@@ -136,6 +137,7 @@
   width: 14px;
   height: 14px;
   opacity: 0.8;
+  color: var(--background);
 }
 
 /* Footer Section */
